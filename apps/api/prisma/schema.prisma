@@ -1,0 +1,943 @@
+// Prisma schema для модели пользователя (1.5.4) и служебных таблиц
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum UserRole {
+  BUYER
+  SUPPLIER
+  MEDIATOR
+  ADMIN
+}
+
+/// Пользователь. Базовая сущность (раздел 1.5.4).
+/// Поддержка совмещений: один user может одновременно иметь роли SUPPLIER + MEDIATOR
+/// (Блок 3, раздел 3.3). Конфликт BUYER+SUPPLIER и BUYER+MEDIATOR запрещён на уровне сервиса.
+model User {
+  id            String     @id @default(uuid()) @db.Uuid
+  email         String?    @unique
+  emailVerified Boolean    @default(false) @map("email_verified")
+  passwordHash  String?    @map("password_hash")
+  vkId          String?    @unique @map("vk_id")
+  telegramId    String?    @unique @map("telegram_id")
+  phone         String?    @unique // E.164 формат, напр. +79261234567
+  phoneVerified Boolean    @default(false) @map("phone_verified")
+  firstName     String?    @map("first_name")
+  lastName      String?    @map("last_name")
+  avatarUrl     String?    @map("avatar_url")
+  /// Основная (исходная) роль для обратной совместимости и фильтров.
+  role          UserRole   @default(BUYER)
+  /// Полный набор ролей пользователя (Блок 3, 3.3 — один аккаунт может быть SUPPLIER+MEDIATOR).
+  roles         UserRole[] @default([BUYER])
+  createdAt     DateTime   @default(now()) @map("created_at")
+  updatedAt     DateTime   @updatedAt @map("updated_at")
+  lastLoginAt   DateTime?  @map("last_login_at")
+  blockedAt     DateTime?  @map("blocked_at")
+
+  sessions     Session[]
+  loginEvents  LoginEvent[]
+  smsCodes     SmsCode[]
+  listings  Listing[]  @relation("UserListings")
+  cartItems CartItem[]
+  orders    Order[]    @relation("UserOrders")
+  favorites Favorite[]
+  reviews   Review[]   @relation("UserReviews")
+
+  supplierProfile SupplierProfile?
+  mediatorProfile MediatorProfile?
+  supportTickets  SupportTicket[]  @relation("UserSupportTickets")
+  supportMessages SupportMessage[] @relation("UserSupportMessages")
+
+  buyerOrderRequests     OrderRequest[]      @relation("BuyerOrderRequests")
+  mediatorOrderRequests  OrderRequest[]      @relation("MediatorOrderRequests")
+  buyerMediatorOrders    MediatorOrder[]     @relation("BuyerMediatorOrders")
+  assignedMediatorOrders MediatorOrder[]     @relation("MediatorMediatorOrders")
+  mediatorResponses      MediatorOrderResponse[]
+  mediatorChats          MediatorOrderChat[] @relation("ChatMediatorUser")
+  buyerChats             MediatorOrderChat[] @relation("ChatBuyerUser")
+  sentMessages           MediatorOrderMessage[] @relation("MessageSenderUser")
+
+  notificationSubs NotificationSubscription[]
+
+  @@unique([email, role])
+  @@unique([phone, role])
+  @@map("users")
+}
+
+enum NotifChannel {
+  TELEGRAM
+  VK
+  MAX
+}
+
+/// Подписка пользователя на уведомления через бота
+model NotificationSubscription {
+  id        String       @id @default(uuid()) @db.Uuid
+  userId    String       @map("user_id") @db.Uuid
+  user      User         @relation(fields: [userId], references: [id], onDelete: Cascade)
+  channel   NotifChannel
+  chatId    String       @map("chat_id") /// ID чата/пользователя в мессенджере
+  active    Boolean      @default(true)
+  createdAt DateTime     @default(now()) @map("created_at")
+
+  @@unique([userId, channel])
+  @@map("notification_subscriptions")
+}
+
+/// Лог успешных входов пользователя — для отображения в разделе «Безопасность»
+model LoginEvent {
+  id        String   @id @default(uuid()) @db.Uuid
+  userId    String   @map("user_id") @db.Uuid
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  ip        String?
+  userAgent String?  @map("user_agent")
+  createdAt DateTime @default(now()) @map("created_at")
+
+  @@index([userId, createdAt(sort: Desc)])
+  @@map("login_events")
+}
+
+/// Серверные сессии пользователя. Для «Выйти со всех устройств» (1.5.3)
+model Session {
+  id        String    @id @default(uuid()) @db.Uuid
+  userId    String    @map("user_id") @db.Uuid
+  user      User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  /// Хэш refresh-токена (сам токен хранится только у клиента)
+  tokenHash String    @unique @map("token_hash")
+  userAgent String?   @map("user_agent")
+  ip        String?
+  expiresAt DateTime  @map("expires_at")
+  createdAt DateTime  @default(now()) @map("created_at")
+  revokedAt DateTime? @map("revoked_at")
+
+  @@index([userId])
+  @@map("sessions")
+}
+
+enum EmailCodePurpose {
+  REGISTRATION
+  PASSWORD_RESET
+  EMAIL_BINDING
+  LOGIN
+  LOGIN_VERIFICATION
+}
+
+/// 6-значные коды подтверждения email (1.2.2, 1.5.2, 1.3.2).
+/// 15 минут жизни, 3 попытки ввода, до повторной отправки.
+model EmailCode {
+  id         String           @id @default(uuid()) @db.Uuid
+  email      String
+  codeHash   String           @map("code_hash")
+  purpose    EmailCodePurpose
+  attempts   Int              @default(0)
+  expiresAt  DateTime         @map("expires_at")
+  consumedAt DateTime?        @map("consumed_at")
+  createdAt  DateTime         @default(now()) @map("created_at")
+
+  @@index([email, purpose])
+  @@map("email_codes")
+}
+
+enum SmsCodePurpose {
+  PHONE_VERIFICATION
+  LOGIN_VERIFICATION
+}
+
+/// 4–6-значные SMS-коды (1.4.3).
+/// 5 минут жизни, 3 попытки; rate limits — в Redis.
+model SmsCode {
+  id         String         @id @default(uuid()) @db.Uuid
+  userId     String?        @map("user_id") @db.Uuid
+  user       User?          @relation(fields: [userId], references: [id], onDelete: Cascade)
+  phone      String
+  codeHash   String         @map("code_hash")
+  purpose    SmsCodePurpose
+  attempts   Int            @default(0)
+  expiresAt  DateTime       @map("expires_at")
+  consumedAt DateTime?      @map("consumed_at")
+  createdAt  DateTime       @default(now()) @map("created_at")
+
+  @@index([userId, purpose])
+  @@map("sms_codes")
+}
+
+// ——— Блок 1.5: поставщики ———
+
+enum EntityType {
+  INDIVIDUAL     // Физическое лицо
+  SELF_EMPLOYED  // Самозанятый (НПД)
+  IP             // ИП
+  OOO            // ООО
+}
+
+enum SupplierStatus {
+  PENDING          // На рассмотрении
+  NEEDS_REVISION   // Требуются правки
+  APPROVED         // Одобрено
+  REJECTED         // Отклонено
+}
+
+/// Справочник локаций (расширяется через админку)
+model DictLocation {
+  id        String   @id @default(uuid()) @db.Uuid
+  name      String   // "Садовод — Корпус А (крытый)"
+  code      String   @unique
+  order     Int      @default(0)
+  isActive  Boolean  @default(true) @map("is_active")
+  createdAt DateTime @default(now()) @map("created_at")
+
+  suppliers SupplierProfile[]
+
+  @@map("dict_locations")
+}
+
+/// Справочник категорий верхнего уровня для поставщиков
+model SupplierTopCategory {
+  id        String   @id @default(uuid()) @db.Uuid
+  name      String   // "Женская одежда"
+  slug      String   @unique
+  order     Int      @default(0)
+  isActive  Boolean  @default(true) @map("is_active")
+  createdAt DateTime @default(now()) @map("created_at")
+
+  links     SupplierCategoryLink[]
+
+  @@map("supplier_top_categories")
+}
+
+/// Связь поставщик ↔ категории (макс 3)
+model SupplierCategoryLink {
+  id         String              @id @default(uuid()) @db.Uuid
+  supplierId String              @map("supplier_id") @db.Uuid
+  supplier   SupplierProfile     @relation(fields: [supplierId], references: [id], onDelete: Cascade)
+  categoryId String              @map("category_id") @db.Uuid
+  category   SupplierTopCategory @relation(fields: [categoryId], references: [id])
+
+  @@unique([supplierId, categoryId])
+  @@map("supplier_category_links")
+}
+
+/// Профиль поставщика: заявка, верификация, статус
+model SupplierProfile {
+  id                   String          @id @default(uuid()) @db.Uuid
+  userId               String          @unique @map("user_id") @db.Uuid
+  user                 User            @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  // Шаг 1: телефон
+  phone                String?
+  phoneVerifiedViaMax  Boolean         @default(false) @map("phone_verified_via_max")
+  maxChatId            String?         @map("max_chat_id")
+
+  // Шаг 2: ФИО
+  lastName             String          @map("last_name")
+  firstName            String          @map("first_name")
+  middleName           String?         @map("middle_name")
+
+  // Шаг 3: Локация + павильон
+  locationId           String          @map("location_id") @db.Uuid
+  location             DictLocation    @relation(fields: [locationId], references: [id])
+  pavilionNumber       String          @map("pavilion_number")
+
+  // Шаг 4: правовая форма
+  entityType           EntityType      @map("entity_type")
+
+  // Шаг 5: категории (many-to-many)
+  categories           SupplierCategoryLink[]
+
+  // Шаг 6: ИНН / ОГРНИП
+  inn                  String?
+  ogrnip               String?
+
+  // Шаг 7: фото документов (приватные URL)
+  passPhotoUrl         String?         @map("pass_photo_url")
+  passSelfiePhotoUrl   String?         @map("pass_selfie_photo_url")
+  avatarUrl            String?         @map("avatar_url")
+
+  // Статус заявки
+  status               SupplierStatus  @default(PENDING)
+  rejectionReason      String?         @map("rejection_reason")
+  submittedAt          DateTime?       @map("submitted_at")
+  reviewedAt           DateTime?       @map("reviewed_at")
+  approvedAt           DateTime?       @map("approved_at")
+
+  createdAt            DateTime        @default(now()) @map("created_at")
+  updatedAt            DateTime        @updatedAt @map("updated_at")
+
+  changeRequests       SupplierChangeRequest[]
+
+  @@map("supplier_profiles")
+}
+
+/// Запросы на изменение критичных данных после одобрения
+model SupplierChangeRequest {
+  id           String          @id @default(uuid()) @db.Uuid
+  supplierId   String          @map("supplier_id") @db.Uuid
+  supplier     SupplierProfile @relation(fields: [supplierId], references: [id], onDelete: Cascade)
+  fieldName    String          @map("field_name")
+  oldValue     String?         @map("old_value")
+  newValue     String          @map("new_value")
+  reason       String
+  status       String          @default("pending") // pending / approved / rejected
+  createdAt    DateTime        @default(now()) @map("created_at")
+  processedAt  DateTime?       @map("processed_at")
+  processedBy  String?         @map("processed_by") @db.Uuid
+
+  @@index([supplierId])
+  @@map("supplier_change_requests")
+}
+
+// ——— Блок 3: посредники ———
+
+enum MediatorStatus {
+  PENDING          // На рассмотрении
+  NEEDS_REVISION   // Требуются правки
+  APPROVED         // Одобрено
+  REJECTED         // Отклонено
+  FROZEN           // Заморожен (пропуск истёк)
+}
+
+/// Профиль посредника (раздел 3.12)
+model MediatorProfile {
+  id                   String          @id @default(uuid()) @db.Uuid
+  userId               String          @unique @map("user_id") @db.Uuid
+  user                 User            @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  // Шаг 1: ФИО
+  lastName             String          @map("last_name")
+  firstName            String          @map("first_name")
+  middleName           String?         @map("middle_name")
+
+  // Шаг 2: телефон + MAX
+  phone                String?
+  phoneVerifiedViaMax  Boolean         @default(false) @map("phone_verified_via_max")
+  maxChatId            String?         @map("max_chat_id")
+
+  // Шаг 3: ставка (decimal 4,2 — 3.00–20.00)
+  commissionRate       Decimal         @map("commission_rate") @db.Decimal(4, 2)
+
+  // Шаг 4: минимальная сумма выкупа (копейки — минорные единицы)
+  minOrderAmount       Int             @default(0) @map("min_order_amount")
+
+  // Шаг 5: фотографии
+  avatarUrl            String?         @map("avatar_url")              // публичный
+  passportPhotoUrl     String?         @map("passport_photo_url")      // приватный
+  passSelfiePhotoUrl   String?         @map("pass_selfie_photo_url")   // приватный
+  passPhotoUrl         String?         @map("pass_photo_url")          // фото пропуска из Садовода
+
+  // Статус заявки и модерация
+  status               MediatorStatus  @default(PENDING)
+  rejectionReason      String?         @map("rejection_reason")
+  submittedAt          DateTime?       @map("submitted_at")
+  reviewedAt           DateTime?       @map("reviewed_at")
+  approvedAt           DateTime?       @map("approved_at")
+  accountExpiresAt     DateTime?       @map("account_expires_at")      // срок действия аккаунта/пропуска
+  expiryNotified7d     Boolean         @default(false) @map("expiry_notified_7d")
+  expiryNotified3d     Boolean         @default(false) @map("expiry_notified_3d")
+  expiryNotified1d     Boolean         @default(false) @map("expiry_notified_1d")
+
+  // Финансовые цели
+  dailyGoal            Int             @default(0) @map("daily_goal")
+  monthlyGoal          Int             @default(0) @map("monthly_goal")
+
+  // Публичная карточка
+  description          String?         @db.Text
+  cardConfig           Json?           @map("card_config")
+
+  // Метрики (пополняются позже)
+  rating               Decimal?        @db.Decimal(3, 2)
+  completedOrdersCount Int             @default(0) @map("completed_orders_count")
+
+  createdAt            DateTime        @default(now()) @map("created_at")
+  updatedAt            DateTime        @updatedAt @map("updated_at")
+
+  changeRequests       MediatorChangeRequest[]
+  reviews              MediatorReview[]
+
+  @@map("mediator_profiles")
+}
+
+/// Запросы на изменение критичных данных (ФИО / паспорт / пропуск / телефон)
+model MediatorChangeRequest {
+  id           String          @id @default(uuid()) @db.Uuid
+  mediatorId   String          @map("mediator_id") @db.Uuid
+  mediator     MediatorProfile @relation(fields: [mediatorId], references: [id], onDelete: Cascade)
+  fieldName    String          @map("field_name")
+  oldValue     String?         @map("old_value")
+  newValue     String          @map("new_value")
+  reason       String
+  supportingFiles String?       @map("supporting_files") // JSON массив URL-ов
+  status       String          @default("pending")       // pending / approved / rejected
+  createdAt    DateTime        @default(now()) @map("created_at")
+  processedAt  DateTime?       @map("processed_at")
+  processedBy  String?         @map("processed_by") @db.Uuid
+
+  @@index([mediatorId])
+  @@map("mediator_change_requests")
+}
+
+// ——— Блок 2: каталог ———
+
+/// Иерархический справочник категорий (2 уровня: родительская → под-категория).
+/// parentId = null → корневая категория. Slug — для URL; сортируем по order.
+model Category {
+  id       String     @id @default(uuid()) @db.Uuid
+  slug     String     @unique
+  name     String
+  icon     String?
+  order    Int        @default(0)
+  parentId String?    @map("parent_id") @db.Uuid
+  parent   Category?  @relation("CategoryChildren", fields: [parentId], references: [id], onDelete: SetNull)
+  children Category[] @relation("CategoryChildren")
+  listings Listing[]
+
+  @@index([parentId])
+  @@map("categories")
+}
+
+enum ListingStatus {
+  DRAFT
+  PUBLISHED
+  SOLD
+  ARCHIVED
+}
+
+enum Currency {
+  RUB
+  KZT
+  BYN
+  USD
+  EUR
+}
+
+/// Группа вариантов товара (напр. одно изделие в разных цветах/размерах).
+model ListingVariantGroup {
+  id        String    @id @default(uuid()) @db.Uuid
+  sellerId  String    @map("seller_id") @db.Uuid
+  listings  Listing[]
+  createdAt DateTime  @default(now()) @map("created_at")
+
+  @@index([sellerId])
+  @@map("listing_variant_groups")
+}
+
+/// Товар (маркетплейс в стиле Озон/WB). Раньше назывался Listing — имя поля в БД сохраняется.
+model Listing {
+  id               String         @id @default(uuid()) @db.Uuid
+  title            String
+  shortDescription String?        @map("short_description") // ≤150 симв.
+  description      String
+  price            Int // в минорных единицах (копейки/центы)
+  currency         Currency       @default(RUB)
+  status           ListingStatus  @default(PUBLISHED)
+  categoryId       String         @map("category_id") @db.Uuid
+  category         Category       @relation(fields: [categoryId], references: [id])
+  sellerId         String         @map("seller_id") @db.Uuid
+  seller           User           @relation("UserListings", fields: [sellerId], references: [id], onDelete: Cascade)
+  city             String?
+  images           ListingImage[]
+  /// Доступное количество на складе. 0 = распродано.
+  stock            Int            @default(1)
+  viewCount        Int            @default(0) @map("view_count")
+  /// Характеристики товара — JSON массив [{key, value}]
+  characteristics  Json?
+  /// Группа вариантов (напр. цветов)
+  variantGroupId   String?        @map("variant_group_id") @db.Uuid
+  variantGroup     ListingVariantGroup? @relation(fields: [variantGroupId], references: [id], onDelete: SetNull)
+  createdAt        DateTime       @default(now()) @map("created_at")
+  updatedAt        DateTime       @updatedAt @map("updated_at")
+
+  cartItems         CartItem[]
+  orderItems        OrderItem[]
+  favorites         Favorite[]
+  reviews           Review[]
+  views             ListingView[]
+  mediatorOrderItems MediatorOrderItem[]
+
+  @@index([categoryId, status, createdAt(sort: Desc)])
+  @@index([sellerId])
+  @@index([variantGroupId])
+  @@map("listings")
+}
+
+/// Картинка товара. В MVP — внешние URL.
+model ListingImage {
+  id        String  @id @default(uuid()) @db.Uuid
+  listingId String  @map("listing_id") @db.Uuid
+  listing   Listing @relation(fields: [listingId], references: [id], onDelete: Cascade)
+  url       String
+  order     Int     @default(0)
+
+  @@index([listingId])
+  @@map("listing_images")
+}
+
+/// Просмотр товара — для дедупликации. Один юзер может засчитать просмотр
+/// конкретного товара не чаще раза в сутки.
+model ListingView {
+  id        String   @id @default(uuid()) @db.Uuid
+  listingId String   @map("listing_id") @db.Uuid
+  listing   Listing  @relation(fields: [listingId], references: [id], onDelete: Cascade)
+  /// userId если залогинен; для анонимов — хэш cookie-fingerprint
+  viewerKey String   @map("viewer_key")
+  /// Дата в формате YYYY-MM-DD (для unique по суткам)
+  viewDate  String   @map("view_date")
+  createdAt DateTime @default(now()) @map("created_at")
+
+  @@unique([listingId, viewerKey, viewDate])
+  @@index([listingId])
+  @@map("listing_views")
+}
+
+// ——— Корзина ———
+
+/// Элемент корзины пользователя. Один товар — максимум одна строка (qty меняется).
+model CartItem {
+  id               String   @id @default(uuid()) @db.Uuid
+  userId           String   @map("user_id") @db.Uuid
+  user             User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  listingId        String   @map("listing_id") @db.Uuid
+  listing          Listing  @relation(fields: [listingId], references: [id], onDelete: Cascade)
+  qty              Int      @default(1)
+  selectedPhotoUrl String?  @map("selected_photo_url")
+  clarification    String?
+  addedAt          DateTime @default(now()) @map("added_at")
+
+  @@unique([userId, listingId])
+  @@index([userId])
+  @@map("cart_items")
+}
+
+// ——— Заказы ———
+
+enum OrderStatus {
+  PENDING // создан, ждёт обработки продавцом
+  CONFIRMED // продавец подтвердил, собирает
+  SHIPPED // передан в доставку
+  DELIVERED // доставлен покупателю
+  CANCELLED // отменён (покупателем или продавцом)
+}
+
+enum DeliveryMethod {
+  PICKUP // самовывоз
+  COURIER // курьером
+  POST // почтой
+}
+
+model Order {
+  id              String         @id @default(uuid()) @db.Uuid
+  buyerId         String         @map("buyer_id") @db.Uuid
+  buyer           User           @relation("UserOrders", fields: [buyerId], references: [id], onDelete: Cascade)
+  status          OrderStatus    @default(PENDING)
+  deliveryMethod  DeliveryMethod @map("delivery_method")
+  /// Адрес/пункт доставки или описание места самовывоза
+  deliveryAddress String         @map("delivery_address")
+  /// Контактный телефон (может отличаться от основного)
+  contactPhone    String         @map("contact_phone")
+  /// Сумма заказа в минорных единицах
+  totalAmount     Int            @map("total_amount")
+  currency        Currency       @default(RUB)
+  comment         String?
+  items           OrderItem[]
+  createdAt       DateTime       @default(now()) @map("created_at")
+  updatedAt       DateTime       @updatedAt @map("updated_at")
+
+  @@index([buyerId, createdAt(sort: Desc)])
+  @@map("orders")
+}
+
+/// Строка заказа. Снимок товара на момент покупки (чтобы цена не плавала при апдейте).
+model OrderItem {
+  id               String  @id @default(uuid()) @db.Uuid
+  orderId          String  @map("order_id") @db.Uuid
+  order            Order   @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  listingId        String  @map("listing_id") @db.Uuid
+  listing          Listing @relation(fields: [listingId], references: [id])
+  /// Снимок названия и цены на момент оформления (цена в минорных)
+  titleSnapshot    String  @map("title_snapshot")
+  priceSnapshot    Int     @map("price_snapshot")
+  imageUrlSnapshot String? @map("image_url_snapshot")
+  qty              Int
+
+  @@index([orderId])
+  @@map("order_items")
+}
+
+// ——— Избранное ———
+
+model Favorite {
+  id        String   @id @default(uuid()) @db.Uuid
+  userId    String   @map("user_id") @db.Uuid
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  listingId String   @map("listing_id") @db.Uuid
+  listing   Listing  @relation(fields: [listingId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now()) @map("created_at")
+
+  @@unique([userId, listingId])
+  @@index([userId])
+  @@map("favorites")
+}
+
+// ——— Отзывы ———
+
+model Review {
+  id        String   @id @default(uuid()) @db.Uuid
+  listingId String   @map("listing_id") @db.Uuid
+  listing   Listing  @relation(fields: [listingId], references: [id], onDelete: Cascade)
+  authorId  String   @map("author_id") @db.Uuid
+  author    User     @relation("UserReviews", fields: [authorId], references: [id], onDelete: Cascade)
+  /// От 1 до 5
+  rating    Int
+  text      String
+  createdAt DateTime @default(now()) @map("created_at")
+
+  @@unique([listingId, authorId])
+  @@index([listingId, createdAt(sort: Desc)])
+  @@map("reviews")
+}
+
+/// Сессия MAX-верификации (Блоки 2 и 3).
+/// При запросе кода — создаётся запись с code_hash (5-минутный TTL, 3 попытки).
+/// При успехе — выдаётся session_token, привязанный к телефону, валидный 60 минут
+/// для оформления заявки.
+enum MaxSessionPurpose {
+  SUPPLIER_REGISTRATION
+  MEDIATOR_REGISTRATION
+}
+
+model MaxVerificationSession {
+  id           String            @id @default(uuid()) @db.Uuid
+  /// Назначение сессии — поставщик или посредник.
+  purpose      MaxSessionPurpose
+  phone        String
+  /// Хэш 6-значного кода, отправленного пользователю в MAX.
+  codeHash     String            @map("code_hash")
+  attempts     Int               @default(0)
+  /// Хэш session-token, выдаваемого после verify (для подачи заявки).
+  sessionToken String?           @unique @map("session_token")
+  verifiedAt   DateTime?         @map("verified_at")
+  consumedAt   DateTime?         @map("consumed_at")
+  expiresAt    DateTime          @map("expires_at")
+  createdAt    DateTime          @default(now()) @map("created_at")
+
+  @@index([phone, purpose])
+  @@map("max_verification_sessions")
+}
+
+// ——— Блок 2.7 / 3.9: чат с техподдержкой ———
+
+enum SupportTicketStatus {
+  OPEN
+  WAITING_USER   // ответ от ТП, ждёт реакции пользователя
+  WAITING_ADMIN  // новый вопрос/ответ пользователя, ждёт ТП
+  CLOSED
+}
+
+enum SupportMessageSender {
+  USER
+  ADMIN
+  SYSTEM
+}
+
+/// Тикет в техподдержку. Один юзер может открывать много тикетов.
+/// Создаётся любым юзером с ролью SUPPLIER / MEDIATOR (BUYER — в будущем).
+model SupportTicket {
+  id          String              @id @default(uuid()) @db.Uuid
+  authorId    String              @map("author_id") @db.Uuid
+  author      User                @relation("UserSupportTickets", fields: [authorId], references: [id], onDelete: Cascade)
+  /// Роль автора на момент создания — чтобы фильтровать в админке по «поставщики/посредники»
+  authorRole  UserRole            @map("author_role")
+  subject     String
+  status      SupportTicketStatus @default(WAITING_ADMIN)
+  messages    SupportMessage[]
+  lastMessageAt DateTime          @default(now()) @map("last_message_at")
+  createdAt   DateTime            @default(now()) @map("created_at")
+  updatedAt   DateTime            @updatedAt @map("updated_at")
+  closedAt    DateTime?           @map("closed_at")
+
+  @@index([authorId, createdAt(sort: Desc)])
+  @@index([status, lastMessageAt(sort: Desc)])
+  @@map("support_tickets")
+}
+
+model SupportMessage {
+  id        String               @id @default(uuid()) @db.Uuid
+  ticketId  String               @map("ticket_id") @db.Uuid
+  ticket    SupportTicket        @relation(fields: [ticketId], references: [id], onDelete: Cascade)
+  /// Кто отправил сообщение
+  sender    SupportMessageSender
+  /// Автор сообщения. Для SYSTEM может быть null.
+  senderId  String?              @map("sender_id") @db.Uuid
+  senderUser User?               @relation("UserSupportMessages", fields: [senderId], references: [id], onDelete: SetNull)
+  text      String
+  /// JSON-массив URL-ов прикреплённых файлов (до 10, по 10 МБ — валидация в бэке)
+  attachments String?
+  createdAt DateTime             @default(now()) @map("created_at")
+  readByAuthorAt DateTime?       @map("read_by_author_at")
+  readByAdminAt  DateTime?       @map("read_by_admin_at")
+
+  @@index([ticketId, createdAt])
+  @@map("support_messages")
+}
+
+// ——— Order Requests (упрощённый поток посредника) ———
+
+enum OrderRequestStatus {
+  CREATED
+  ACCEPTED
+  COMPLETED
+  CANCELLED
+}
+
+model OrderRequest {
+  id              String             @id @default(uuid()) @db.Uuid
+  buyerId         String             @map("buyer_id") @db.Uuid
+  buyer           User               @relation("BuyerOrderRequests", fields: [buyerId], references: [id], onDelete: Cascade)
+  mediatorId      String             @map("mediator_id") @db.Uuid
+  mediator        User               @relation("MediatorOrderRequests", fields: [mediatorId], references: [id], onDelete: Cascade)
+  status          OrderRequestStatus @default(CREATED)
+  totalItemsPrice Int                @map("total_items_price")
+  totalCommission Int                @map("total_commission")
+  totalAmount     Int                @map("total_amount")
+  currency        Currency           @default(RUB)
+  comment         String?
+  items           OrderRequestItem[]
+  chat            OrderRequestChat?
+  createdAt       DateTime           @default(now()) @map("created_at")
+  updatedAt       DateTime           @updatedAt @map("updated_at")
+
+  @@map("order_requests")
+}
+
+model OrderRequestItem {
+  id               String       @id @default(uuid()) @db.Uuid
+  orderRequestId   String       @map("order_request_id") @db.Uuid
+  orderRequest     OrderRequest @relation(fields: [orderRequestId], references: [id], onDelete: Cascade)
+  listingId        String?      @map("listing_id") @db.Uuid
+  sellerId         String?      @map("seller_id") @db.Uuid
+  titleSnapshot    String       @map("title_snapshot")
+  priceSnapshot    Int          @map("price_snapshot")
+  imageUrlSnapshot String?      @map("image_url_snapshot")
+  selectedPhotoUrl String?      @map("selected_photo_url")
+  clarification    String?
+  qty              Int          @default(1)
+  mediatorStatus   String       @default("PENDING") @map("mediator_status")
+  createdAt        DateTime     @default(now()) @map("created_at")
+
+  @@map("order_request_items")
+}
+
+model OrderRequestChat {
+  id             String              @id @default(uuid()) @db.Uuid
+  orderRequestId String              @unique @map("order_request_id") @db.Uuid
+  orderRequest   OrderRequest        @relation(fields: [orderRequestId], references: [id], onDelete: Cascade)
+  buyerId        String              @map("buyer_id") @db.Uuid
+  mediatorId     String              @map("mediator_id") @db.Uuid
+  messages       OrderRequestMessage[]
+  createdAt      DateTime            @default(now()) @map("created_at")
+
+  @@map("order_request_chats")
+}
+
+model OrderRequestMessage {
+  id        String           @id @default(uuid()) @db.Uuid
+  chatId    String           @map("chat_id") @db.Uuid
+  chat      OrderRequestChat @relation(fields: [chatId], references: [id], onDelete: Cascade)
+  senderId  String           @map("sender_id") @db.Uuid
+  text      String
+  createdAt DateTime         @default(now()) @map("created_at")
+
+  @@index([chatId, createdAt])
+  @@map("order_request_messages")
+}
+
+// ——— Mediator Orders (полный поток ТЗ блок 5) ———
+
+enum MediatorOrderStatus {
+  SEARCHING
+  SELECTING
+  ASSIGNED
+  AWAITING_PURCHASE_DATE
+  PURCHASING
+  DELIVERING
+  COMPLETED
+  CANCELLED
+  DISPUTE
+  NOT_FOUND
+}
+
+enum MediatorOrderItemStatus {
+  PENDING
+  PRICE_CHANGE_OFFERED
+  REPLACEMENT_OFFERED
+  BOUGHT
+  NOT_AVAILABLE
+}
+
+model MediatorOrder {
+  id                    String             @id @default(uuid()) @db.Uuid
+  buyerId               String             @map("buyer_id") @db.Uuid
+  buyer                 User               @relation("BuyerMediatorOrders", fields: [buyerId], references: [id], onDelete: Cascade)
+  mediatorId            String?            @map("mediator_id") @db.Uuid
+  mediator              User?              @relation("MediatorMediatorOrders", fields: [mediatorId], references: [id], onDelete: SetNull)
+  seqNumber             Int                @default(autoincrement()) @map("seq_number")
+  currency              Currency           @default(RUB)
+  status                MediatorOrderStatus @default(SEARCHING)
+  totalEstimatedAmount  Int                @map("total_estimated_amount")
+  totalActualAmount     Int?               @map("total_actual_amount")
+  totalCommissionAmount Int?               @map("total_commission_amount")
+  mediatorCommissionRate Decimal?          @map("mediator_commission_rate") @db.Decimal(4, 2)
+  recipientFirstName    String             @map("recipient_first_name")
+  recipientLastName     String             @map("recipient_last_name")
+  recipientMiddleName   String?            @map("recipient_middle_name")
+  recipientPhone        String             @map("recipient_phone")
+  deliveryMethod        String             @map("delivery_method")
+  deliveryAddress       String             @map("delivery_address")
+  desiredPurchaseDate   DateTime           @map("desired_purchase_date")
+  commentToMediator     String?            @map("comment_to_mediator")
+  cancelledBy           String?            @map("cancelled_by")
+  cancelReason          String?            @map("cancel_reason")
+  cancellationReason    String?            @map("cancellation_reason")
+  cancelledById         String?            @map("cancelled_by_id") @db.Uuid
+  mediatorCommissionAmount Int?            @map("mediator_commission_amount")
+  completedAt           DateTime?          @map("completed_at")
+  cancelledAt           DateTime?          @map("cancelled_at")
+  assignedAt            DateTime?          @map("assigned_at")
+  items                 MediatorOrderItem[]
+  responses             MediatorOrderResponse[]
+  chats                 MediatorOrderChat[]
+  createdAt             DateTime           @default(now()) @map("created_at")
+  updatedAt             DateTime           @updatedAt @map("updated_at")
+
+  @@index([buyerId])
+  @@index([mediatorId])
+  @@index([status])
+  @@map("mediator_orders")
+}
+
+model MediatorOrderItem {
+  id                   String                 @id @default(uuid()) @db.Uuid
+  orderId              String                 @map("order_id") @db.Uuid
+  order                MediatorOrder          @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  listingId            String?                @map("listing_id") @db.Uuid
+  listing              Listing?               @relation(fields: [listingId], references: [id], onDelete: SetNull)
+  sellerId             String?                @map("seller_id") @db.Uuid
+  selectedPhotoUrl     String                 @map("selected_photo_url")
+  clarification        String
+  originalPrice        Int                    @map("original_price")
+  currentPrice         Int                    @map("current_price")
+  status               MediatorOrderItemStatus @default(PENDING)
+  priceChangeProposed  Int?                   @map("price_change_proposed")
+  priceChangeComment   String?                @map("price_change_comment")
+  replacementData      Json?                  @map("replacement_data")
+  createdAt            DateTime               @default(now()) @map("created_at")
+  updatedAt            DateTime               @updatedAt @map("updated_at")
+
+  @@map("mediator_order_items")
+}
+
+model MediatorOrderResponse {
+  id          String        @id @default(uuid()) @db.Uuid
+  orderId     String        @map("order_id") @db.Uuid
+  order       MediatorOrder @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  mediatorId  String        @map("mediator_id") @db.Uuid
+  mediator    User          @relation(fields: [mediatorId], references: [id], onDelete: Cascade)
+  withdrawnAt DateTime?     @map("withdrawn_at")
+  createdAt   DateTime      @default(now()) @map("created_at")
+
+  @@unique([orderId, mediatorId])
+  @@map("mediator_order_responses")
+}
+
+model MediatorOrderChat {
+  id         String                @id @default(uuid()) @db.Uuid
+  orderId    String                @map("order_id") @db.Uuid
+  order      MediatorOrder         @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  mediatorId String                @map("mediator_id") @db.Uuid
+  mediator   User                  @relation("ChatMediatorUser", fields: [mediatorId], references: [id], onDelete: Cascade)
+  buyerId    String                @map("buyer_id") @db.Uuid
+  buyer      User                  @relation("ChatBuyerUser", fields: [buyerId], references: [id], onDelete: Cascade)
+  isActive   Boolean               @default(true) @map("is_active")
+  closedAt   DateTime?             @map("closed_at")
+  messages   MediatorOrderMessage[]
+  createdAt  DateTime              @default(now()) @map("created_at")
+
+  @@unique([orderId, mediatorId])
+  @@map("mediator_order_chats")
+}
+
+model MediatorOrderMessage {
+  id          String            @id @default(uuid()) @db.Uuid
+  chatId      String            @map("chat_id") @db.Uuid
+  chat        MediatorOrderChat @relation(fields: [chatId], references: [id], onDelete: Cascade)
+  senderId    String?           @map("sender_id") @db.Uuid
+  sender      User?             @relation("MessageSenderUser", fields: [senderId], references: [id], onDelete: SetNull)
+  type        String            @default("TEXT")
+  content     String
+  attachments String[]
+  createdAt   DateTime          @default(now()) @map("created_at")
+
+  @@index([chatId, createdAt])
+  @@map("mediator_order_messages")
+}
+
+// ——— Отзывы о посредниках ———
+
+model MediatorReview {
+  id             String          @id @default(uuid()) @db.Uuid
+  mediatorId     String          @map("mediator_id") @db.Uuid
+  mediator       MediatorProfile @relation(fields: [mediatorId], references: [id], onDelete: Cascade)
+  buyerName      String          @map("buyer_name")
+  buyerAvatarUrl String?         @map("buyer_avatar_url")
+  rating         Int
+  text           String          @db.Text
+  createdAt      DateTime        @default(now()) @map("created_at")
+
+  @@index([mediatorId, createdAt(sort: Desc)])
+  @@map("mediator_reviews")
+}
+
+// ——— Category AI Settings ———
+
+/// Настройки AI-сопоставления категорий (singleton)
+model CategoryAiSettings {
+  id          String   @id @default("default")
+  apiKey      String?  @map("api_key")
+  apiBaseUrl  String   @default("https://api.zveno.ai/v1") @map("api_base_url")
+  model       String   @default("google/gemini-flash-1.5")
+  threshold   Float    @default(0.75)
+  enabled     Boolean  @default(true)
+  /// Промт для категоризации (оставь пустым для использования дефолтного)
+  systemPrompt String? @map("system_prompt") @db.Text
+  updatedAt   DateTime @updatedAt @map("updated_at")
+  @@map("category_ai_settings")
+}
+
+// ——— AI Bot Settings ———
+
+/// Настройки AI-бота поддержки (singleton — всегда id = "default")
+model BotSettings {
+  id          String   @id @default("default")
+  /// API-ключ ZvenoAI (OpenAI-совместимый)
+  apiKey      String?  @map("api_key")
+  /// Base URL API (по умолчанию ZvenoAI)
+  apiBaseUrl  String   @default("https://api.zveno.ai/v1") @map("api_base_url")
+  /// Модель нейросети (например gpt-4o-mini)
+  model       String   @default("google/gemini-3-flash-preview")
+  /// Системный промт для бота (txt)
+  systemPrompt String? @map("system_prompt") @db.Text
+  /// Температура генерации (0.0 – 2.0)
+  temperature Float    @default(0.7)
+  /// Макс. токенов в ответе
+  maxTokens   Int      @default(1024) @map("max_tokens")
+  /// Включён ли AI-бот (false = regex fallback)
+  enabled     Boolean  @default(false)
+  updatedAt   DateTime @updatedAt @map("updated_at")
+
+  @@map("bot_settings")
+}

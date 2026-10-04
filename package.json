@@ -1,0 +1,35 @@
+{
+  "name": "marketplace",
+  "version": "0.1.0",
+  "private": true,
+  "packageManager": "pnpm@9.0.0",
+  "scripts": {
+    "dev": "pnpm --filter @marketplace/shared dev & pnpm -r --parallel --filter \"!@marketplace/shared\" dev",
+    "dev:web": "pnpm --filter marketplizzzz dev",
+    "dev:seller": "pnpm --filter @marketplace/seller dev",
+    "dev:admin": "pnpm --filter @marketplace/admin dev",
+    "dev:mediator": "pnpm --filter @marketplace/mediator dev",
+    "dev:api": "pnpm --filter @marketplace/api start:dev",
+    "dev:all": "pnpm -r --parallel dev",
+    "build": "pnpm --filter @marketplace/shared build && pnpm --filter @marketplace/api build && pnpm --filter marketplizzzz build",
+    "build:shared": "pnpm --filter @marketplace/shared build",
+    "build:api": "pnpm --filter @marketplace/api build",
+    "lint": "pnpm -r lint",
+    "typecheck": "pnpm -r typecheck",
+    "db:up": "docker compose up -d postgres redis mailhog",
+    "db:down": "docker compose down",
+    "db:logs": "docker compose logs -f postgres redis",
+    "db:migrate": "pnpm --filter @marketplace/api exec prisma migrate dev",
+    "db:push": "pnpm --filter @marketplace/api exec prisma db push",
+    "db:generate": "pnpm --filter @marketplace/api exec prisma generate",
+    "db:studio": "pnpm --filter @marketplace/api exec prisma studio",
+    "seed": "node apps/api/prisma/seed-all.cjs",
+    "seed:admin": "node apps/api/prisma/seed-admin.cjs",
+    "seed:buyer": "node apps/api/prisma/seed-buyer.cjs",
+    "seed:seller": "node apps/api/prisma/seed-seller.cjs",
+    "seed:mediator": "node apps/api/prisma/seed-mediator.cjs"
+  },
+  "devDependencies": {
+    "typescript": "^5.6.3"
+  }
+}

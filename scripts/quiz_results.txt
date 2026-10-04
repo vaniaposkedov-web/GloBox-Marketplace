@@ -1,0 +1,1861 @@
+============================================================
+  REZULTATY TESTA
+  Exam 04.05.26 Training
+  Attempt: 22657 | Total: 117
+============================================================
+
+--------------------------------------------------
+Вопрос 1 [CORRECT]
+--------------------------------------------------
+Объявите
+переменные (соотнесите тип данных и название переменной)
+Баллов: 1,00 из 1,00
+
+CORRECT ANSWER: переменная temp позволит проверить
+истинность высказывания → bool, в переменной age будет хранится возраст → int, в переменную name занесут кличку
+животного → string
+
+--------------------------------------------------
+Вопрос 2 [CORRECT]
+--------------------------------------------------
+Найдите
+значения всех переменных.
+
+v=5; v++; y=++v; z=v%6; a=v/3; z-=4; z*=1; --z;
+Баллов: 1,00 из 1,00
+
+CORRECT ANSWER: y → 7, z → -4, a → 2, v → 7
+
+--------------------------------------------------
+Вопрос 3 [CORRECT]
+--------------------------------------------------
+Определите
+значение всех переменных.
+
+int c=8;
+
+int a=c%8,
+b;
+
+switch(a)
+
+{
+
+case 0:
+case 1: b=c*a; break; 
+
+case 2:
+case 3: b=c/a; break; 
+
+case 4:
+case 5: b=c+a; break; 
+
+default:
+b=c;
+
+}
+Баллов: 1,00 из 1,00
+
+CORRECT ANSWER: b → 0, c → 8, a → 0
+
+--------------------------------------------------
+Вопрос 4 [CORRECT]
+--------------------------------------------------
+Какое ключевое слово используется для создания
+неизменяемой переменной?
+Баллов: 1,00 из 1,00
+
+Options:
+     (text not extracted)
+     (text not extracted)
+  [V] (text not extracted)
+     (text not extracted)
+
+CORRECT ANSWER: val
+
+--------------------------------------------------
+Вопрос 5 [CORRECT]
+--------------------------------------------------
+Какой модификатор доступа по умолчанию
+используется в Kotlin?
+Баллов: 1,00 из 1,00
+
+Options:
+     (text not extracted)
+     (text not extracted)
+  [V] (text not extracted)
+     (text not extracted)
+
+CORRECT ANSWER: public
+
+--------------------------------------------------
+Вопрос 6 [CORRECT]
+--------------------------------------------------
+Дан метод int F(int a, int b). Что вернет метод, если ему передать
+два числа 15 и 25? 
+
+int F(int
+a, int b)
+
+{
+
+    int k = 1;
+
+    for (int i = 2; i <= b; i++)
+
+        if (a % i == 0 && b % i == 0)
+
+            k = i;
+
+    return k; }
+Баллов: 1,00 из 1,00
+
+Options:
+     (text not extracted)
+     (text not extracted)
+  [V] (text not extracted)
+     (text not extracted)
+
+CORRECT ANSWER: 5
+
+--------------------------------------------------
+Вопрос 7 [CORRECT]
+--------------------------------------------------
+Какой
+индекс имеет последний элемент массива A, если размер массива равен 10?
+Баллов: 1,00 из 1,00
+
+Options:
+  [V] (text not extracted)
+     (text not extracted)
+     (text not extracted)
+     (text not extracted)
+
+CORRECT ANSWER: 9
+
+--------------------------------------------------
+Вопрос 8 [CORRECT]
+--------------------------------------------------
+Выполните
+ручную отладку фрагмента программы и определите значения переменных.
+
+int a[6]={4,
+5, 6, 8,7, 8};
+
+for (int
+i=1;i<=5;i++) if (i%2!=1) a[i]*=3;
+Баллов: 1,00 из 1,00
+
+Options:
+     (text not extracted)
+     (text not extracted)
+  [V] (text not extracted)
+
+CORRECT ANSWER: 5,18,8,21,8
+
+--------------------------------------------------
+Вопрос 9 [CORRECT]
+--------------------------------------------------
+Какой символ используется для комментариев в
+одной строке С++?
+Баллов: 1,00 из 1,00
+
+Options:
+  [V] (text not extracted)
+     (text not extracted)
+     (text not extracted)
+
+CORRECT ANSWER: //
+
+--------------------------------------------------
+Вопрос 10 [CORRECT]
+--------------------------------------------------
+Что возвращает функция "main()"в C++?
+Баллов: 1,00 из 1,00
+
+Options:
+     (text not extracted)
+  [V] (text not extracted)
+     (text not extracted)
+     (text not extracted)
+
+CORRECT ANSWER: int
+
+--------------------------------------------------
+Вопрос 11 [CORRECT]
+--------------------------------------------------
+Какой метод является точкой входа в
+Java-программу?
+Баллов: 1,00 из 1,00
+
+Options:
+     (text not extracted)
+  [V] (text not extracted)
+     (text not extracted)
+
+CORRECT ANSWER: main()
+
+--------------------------------------------------
+Вопрос 12 [CORRECT]
+--------------------------------------------------
+Какой из следующих модификаторов доступа
+позволяет доступ только внутри класса?
+Баллов: 1,00 из 1,00
+
+Options:
+  [V] (text not extracted)
+     (text not extracted)
+     (text not extracted)
+     (text not extracted)
+
+CORRECT ANSWER: private
+
+--------------------------------------------------
+Вопрос 13 [CORRECT]
+--------------------------------------------------
+Какой тип цикла используется для итерации, когда
+количество итераций заранее известно?
+Баллов: 1,00 из 1,00
+
+Options:
+     (text not extracted)
+  [V] (text not extracted)
+     (text not extracted)
+     (text not extracted)
+
+CORRECT ANSWER: for
+
+--------------------------------------------------
+Вопрос 14 [CORRECT]
+--------------------------------------------------
+Какой из следующих методов используется для
+вывода на экран C++?
+Баллов: 1,00 из 1,00
+
+Options:
+  [V] (text not extracted)
+     (text not extracted)
+     (text not extracted)
+     (text not extracted)
+
+CORRECT ANSWER: cout
+
+--------------------------------------------------
+Вопрос 15 [CORRECT]
+--------------------------------------------------
+Что делает оператор ++ перед переменной?
+Баллов: 1,00 из 1,00
+
+Options:
+  [V] (text not extracted)
+     (text not extracted)
+     (text not extracted)
+     (text not extracted)
+
+CORRECT ANSWER: Увеличивает переменную на 1
+
+--------------------------------------------------
+Вопрос 16 [CORRECT]
+--------------------------------------------------
+Какой из следующих типов данных является
+целочисленным?
+Баллов: 1,00 из 1,00
+
+Options:
+     (text not extracted)
+     (text not extracted)
+     (text not extracted)
+  [V] (text not extracted)
+
+CORRECT ANSWER: int
+
+--------------------------------------------------
+Вопрос 17 [CORRECT]
+--------------------------------------------------
+Какой оператор используется для сравнения двух
+значений?
+Баллов: 1,00 из 1,00
+
+Options:
+     (text not extracted)
+     (text not extracted)
+     (text not extracted)
+  [V] (text not extracted)
+
+CORRECT ANSWER: ==
+
+--------------------------------------------------
+Вопрос 18 [CORRECT]
+--------------------------------------------------
+Какой из следующих типов данных является ссылочным?
+Баллов: 1,00 из 1,00
+
+Options:
+     (text not extracted)
+  [V] (text not extracted)
+     (text not extracted)
+     (text not extracted)
+
+CORRECT ANSWER: string&
+
+--------------------------------------------------
+Вопрос 19 [CORRECT]
+--------------------------------------------------
+Какой из следующих типов является
+примитивным в Java?
+Баллов: 1,00 из 1,00
+
+Options:
+  [V] (text not extracted)
+     (text not extracted)
+     (text not extracted)
+
+CORRECT ANSWER: int
+
+--------------------------------------------------
+Вопрос 20 [CORRECT]
+--------------------------------------------------
+Какой оператор используется для
+сравнения двух значений?
+Баллов: 1,00 из 1,00
+
+Options:
+     (text not extracted)
+  [V] (text not extracted)
+     (text not extracted)
+
+CORRECT ANSWER: ==
+
+--------------------------------------------------
+Вопрос 21 [CORRECT]
+--------------------------------------------------
+Какой
+из следующих операторов используется для логического "И"?
+Баллов: 1,00 из 1,00
+
+Options:
+  [V] (text not extracted)
+     (text not extracted)
+     (text not extracted)
+
+CORRECT ANSWER: &&
+
+--------------------------------------------------
+Вопрос 22 [CORRECT]
+--------------------------------------------------
+Как объявить массив целых чисел в Java?
+Баллов: 1,00 из 1,00
+
+Options:
+     (text not extracted)
+  [V] (text not extracted)
+     (text not extracted)
+
+CORRECT ANSWER: Оба
+варианта верны
+
+--------------------------------------------------
+Вопрос 23 [CORRECT]
+--------------------------------------------------
+Какой из следующих модификаторов доступа
+позволяет доступ только внутри одного класса?
+Баллов: 1,00 из 1,00
+
+Options:
+     (text not extracted)
+     (text not extracted)
+  [V] (text not extracted)
+
+CORRECT ANSWER: private
+
+--------------------------------------------------
+Вопрос 24 [WRONG]
+--------------------------------------------------
+Какой метод используется для
+преобразования строки в целое число?
+Баллов: 0,00 из 1,00
+
+Options:
+  [X] (text not extracted)
+     (text not extracted)
+     (text not extracted)
+
+CORRECT ANSWER: Integer.parseInt()
+
+--------------------------------------------------
+Вопрос 25 [CORRECT]
+--------------------------------------------------
+Какой из следующих операторов
+используется для получения остатка от деления?
+Баллов: 1,00 из 1,00
+
+Options:
+     (text not extracted)
+  [V] (text not extracted)
+     (text not extracted)
+
+CORRECT ANSWER: %
+
+--------------------------------------------------
+Вопрос 26 [CORRECT]
+--------------------------------------------------
+Какой из следующих циклов используется
+для итерации по элементам массива?
+Баллов: 1,00 из 1,00
+
+Options:
+     (text not extracted)
+  [V] (text not extracted)
+     (text not extracted)
+
+CORRECT ANSWER: for
+
+--------------------------------------------------
+Вопрос 27 [CORRECT]
+--------------------------------------------------
+Что такое data
+class в Kotlin?
+Баллов: 1,00 из 1,00
+
+Options:
+  [V] (text not extracted)
+     (text not extracted)
+     (text not extracted)
+     (text not extracted)
+
+CORRECT ANSWER: Класс, автоматически генерирующий методы equals,
+hashCode, toString и copy
+
+--------------------------------------------------
+Вопрос 28 [WRONG]
+--------------------------------------------------
+Какой класс используется для работы с
+исключениями в Java?
+Баллов: 0,00 из 1,00
+
+Options:
+     (text not extracted)
+     (text not extracted)
+  [X] (text not extracted)
+     (text not extracted)
+
+CORRECT ANSWER: Exception
+
+--------------------------------------------------
+Вопрос 29 [CORRECT]
+--------------------------------------------------
+Что такое JDK, JRE и JVM?
+Баллов: 1,00 из 1,00
+
+Options:
+  [V] (text not extracted)
+     (text not extracted)
+     (text not extracted)
+     (text not extracted)
+
+CORRECT ANSWER: JDK — это Java Development Kit, JRE — Java Runtime
+Environment, JVM — Java Virtual Machine.
+
+--------------------------------------------------
+Вопрос 30 [CORRECT]
+--------------------------------------------------
+В чем разница между компиляцией и
+интерпретацией в контексте Java?
+Баллов: 1,00 из 1,00
+
+Options:
+     (text not extracted)
+  [V] (text not extracted)
+     (text not extracted)
+
+CORRECT ANSWER: Компиляция
+— это преобразование исходного кода в байт-код, интерпретация — выполнение
+этого байт-кода.
+
+--------------------------------------------------
+Вопрос 31 [CORRECT]
+--------------------------------------------------
+Что такое garbage
+collection в Java?
+Баллов: 1,00 из 1,00
+
+Options:
+     (text not extracted)
+  [V] (text not extracted)
+     (text not extracted)
+
+CORRECT ANSWER: Процесс освобождения памяти от неиспользуемых объектов.
+
+--------------------------------------------------
+Вопрос 32 [CORRECT]
+--------------------------------------------------
+Как работает система типов в Java?
+Баллов: 1,00 из 1,00
+
+Options:
+     (text not extracted)
+     (text not extracted)
+  [V] (text not extracted)
+
+CORRECT ANSWER: Примитивные
+типы хранят значения, а ссылочные — ссылки на объекты.
+
+--------------------------------------------------
+Вопрос 33 [CORRECT]
+--------------------------------------------------
+Что такое исключения в Java?
+Баллов: 1,00 из 1,00
+
+Options:
+  [V] (text not extracted)
+     (text not extracted)
+     (text not extracted)
+     (text not extracted)
+
+CORRECT ANSWER: Ошибки, которые возникают во время выполнения программы.
+
+--------------------------------------------------
+Вопрос 34 [CORRECT]
+--------------------------------------------------
+Какой принцип ООП подразумевает
+скрытие данных?
+Баллов: 1,00 из 1,00
+
+Options:
+  [V] (text not extracted)
+     (text not extracted)
+     (text not extracted)
+
+CORRECT ANSWER: Инкапсуляция
+
+--------------------------------------------------
+Вопрос 35 [CORRECT]
+--------------------------------------------------
+Какой из следующих
+модификаторов используется для создания наследуемого класса?
+Баллов: 1,00 из 1,00
+
+Options:
+     (text not extracted)
+  [V] (text not extracted)
+     (text not extracted)
+
+CORRECT ANSWER: abstract
+
+--------------------------------------------------
+Вопрос 36 [CORRECT]
+--------------------------------------------------
+Что такое перегрузка метода?
+Баллов: 1,00 из 1,00
+
+Options:
+     (text not extracted)
+     (text not extracted)
+  [V] (text not extracted)
+
+CORRECT ANSWER: Создание
+метода с тем же именем, но с другим количеством параметров
+
+--------------------------------------------------
+Вопрос 37 [CORRECT]
+--------------------------------------------------
+Какой из следующих принципов
+ООП позволяет использовать один интерфейс для разных типов объектов?
+Баллов: 1,00 из 1,00
+
+Options:
+  [V] (text not extracted)
+     (text not extracted)
+     (text not extracted)
+
+CORRECT ANSWER: Полиморфизм
+
+--------------------------------------------------
+Вопрос 38 [CORRECT]
+--------------------------------------------------
+Какой оператор используется для проверки на null?
+Баллов: 1,00 из 1,00
+
+Options:
+  [V] (text not extracted)
+     (text not extracted)
+     (text not extracted)
+     (text not extracted)
+
+CORRECT ANSWER: ?.
+
+--------------------------------------------------
+Вопрос 39 [CORRECT]
+--------------------------------------------------
+Какой ключевой слово
+используется для создания интерфейса в Java?
+Баллов: 1,00 из 1,00
+
+Options:
+  [V] (text not extracted)
+     (text not extracted)
+     (text not extracted)
+     (text not extracted)
+
+CORRECT ANSWER: interface
+
+--------------------------------------------------
+Вопрос 40 [CORRECT]
+--------------------------------------------------
+Что происходит при
+переопределении метода?
+Баллов: 1,00 из 1,00
+
+Options:
+     (text not extracted)
+  [V] (text not extracted)
+     (text not extracted)
+
+CORRECT ANSWER: Метод в дочернем классе имеет ту же сигнатуру,
+что и в родительском
+
+--------------------------------------------------
+Вопрос 41 [CORRECT]
+--------------------------------------------------
+Какой из следующих классов
+является абстрактным?
+Баллов: 1,00 из 1,00
+
+Options:
+     (text not extracted)
+  [V] (text not extracted)
+     (text not extracted)
+
+CORRECT ANSWER: abstract class
+
+--------------------------------------------------
+Вопрос 42 [CORRECT]
+--------------------------------------------------
+Какой метод вызывается при
+создании объекта класса?
+Баллов: 1,00 из 1,00
+
+Options:
+     (text not extracted)
+     (text not extracted)
+  [V] (text not extracted)
+
+CORRECT ANSWER: метод с именем класса
+
+--------------------------------------------------
+Вопрос 43 [WRONG]
+--------------------------------------------------
+Какой из следующих методов
+используется для получения доступа к приватным полям класса?
+Баллов: 0,00 из 1,00
+
+Options:
+     (text not extracted)
+  [X] (text not extracted)
+     (text not extracted)
+     (text not extracted)
+
+CORRECT ANSWER: getter
+
+--------------------------------------------------
+Вопрос 44 [CORRECT]
+--------------------------------------------------
+Что такое композиций в ООП?
+Баллов: 1,00 из 1,00
+
+Options:
+     (text not extracted)
+     (text not extracted)
+  [V] (text not extracted)
+     (text not extracted)
+
+CORRECT ANSWER: Включение
+одного объекта в другой
+
+--------------------------------------------------
+Вопрос 45 [CORRECT]
+--------------------------------------------------
+Что такое Jetpack Compose?
+Баллов: 1,00 из 1,00
+
+Options:
+     (text not extracted)
+     (text not extracted)
+     (text not extracted)
+  [V] (text not extracted)
+
+CORRECT ANSWER: Фреймворк для декларативного создания
+пользовательского интерфейса
+
+--------------------------------------------------
+Вопрос 46 [CORRECT]
+--------------------------------------------------
+Что такое инкапсуляция?
+Баллов: 1,00 из 1,00
+
+Options:
+  [V] (text not extracted)
+     (text not extracted)
+     (text not extracted)
+     (text not extracted)
+
+CORRECT ANSWER: Скрытие
+внутренней реализации объекта и предоставление доступа только через методы.
+
+--------------------------------------------------
+Вопрос 47 [CORRECT]
+--------------------------------------------------
+Какой аннотацией обозначается функция-компонент
+в Compose?
+Баллов: 1,00 из 1,00
+
+Options:
+     (text not extracted)
+  [V] (text not extracted)
+     (text not extracted)
+     (text not extracted)
+
+CORRECT ANSWER: @Composable
+
+--------------------------------------------------
+Вопрос 48 [WRONG]
+--------------------------------------------------
+Что используется для управления состоянием в Jetpack
+Compose?
+Баллов: 0,00 из 1,00
+
+Options:
+     (text not extracted)
+     (text not extracted)
+  [X] (text not extracted)
+     (text not extracted)
+
+CORRECT ANSWER: Все вышеперечисленное
+
+--------------------------------------------------
+Вопрос 49 [CORRECT]
+--------------------------------------------------
+Как объявить функцию в Kotlin?
+Баллов: 1,00 из 1,00
+
+Options:
+     (text not extracted)
+     (text not extracted)
+  [V] (text not extracted)
+     (text not extracted)
+
+CORRECT ANSWER: fun
+
+--------------------------------------------------
+Вопрос 50 [CORRECT]
+--------------------------------------------------
+Какой из следующих фрагментов кода правильно создает
+объект класса String?
+Баллов: 1,00 из 1,00
+
+Options:
+     (text not extracted)
+     (text not extracted)
+  [V] (text not extracted)
+
+CORRECT ANSWER: Оба варианта правильные.
+
+--------------------------------------------------
+Вопрос 51 [CORRECT]
+--------------------------------------------------
+Какой метод используется для установки
+содержимого в Compose Activity?
+Баллов: 1,00 из 1,00
+
+Options:
+  [V] (text not extracted)
+     (text not extracted)
+     (text not extracted)
+     (text not extracted)
+
+CORRECT ANSWER: setContent()
+
+--------------------------------------------------
+Вопрос 52 [CORRECT]
+--------------------------------------------------
+Какой оператор используется для хранения состояния в Compose?
+Баллов: 1,00 из 1,00
+
+Options:
+     (text not extracted)
+  [V] (text not extracted)
+     (text not extracted)
+     (text not extracted)
+
+CORRECT ANSWER: remember
+
+--------------------------------------------------
+Вопрос 53 [CORRECT]
+--------------------------------------------------
+Какой метод используется для получения длины строки в Java?
+Баллов: 1,00 из 1,00
+
+Options:
+     (text not extracted)
+  [V] (text not extracted)
+     (text not extracted)
+
+CORRECT ANSWER: length()
+
+--------------------------------------------------
+Вопрос 54 [CORRECT]
+--------------------------------------------------
+Что такое Modifier
+в Jetpack Compose?
+Баллов: 1,00 из 1,00
+
+Options:
+     (text not extracted)
+     (text not extracted)
+  [V] (text not extracted)
+     (text not extracted)
+
+CORRECT ANSWER: Объект для стилизации и настройки UI-элементов
+
+--------------------------------------------------
+Вопрос 55 [WRONG]
+--------------------------------------------------
+Какой из следующих операторов используется для
+сравнения строк в Java?
+Баллов: 0,00 из 1,00
+
+Options:
+  [X] (text not extracted)
+     (text not extracted)
+     (text not extracted)
+     (text not extracted)
+
+CORRECT ANSWER: equals()
+
+--------------------------------------------------
+Вопрос 56 [CORRECT]
+--------------------------------------------------
+Какой элемент используется для отображения
+текста в Jetpack Compose?
+Баллов: 1,00 из 1,00
+
+Options:
+     (text not extracted)
+  [V] (text not extracted)
+     (text not extracted)
+     (text not extracted)
+
+CORRECT ANSWER: Text()
+
+--------------------------------------------------
+Вопрос 57 [CORRECT]
+--------------------------------------------------
+Как можно создать вертикальный список элементов?
+Баллов: 1,00 из 1,00
+
+Options:
+     (text not extracted)
+     (text not extracted)
+  [V] (text not extracted)
+     (text not extracted)
+
+CORRECT ANSWER: LazyColumn
+
+--------------------------------------------------
+Вопрос 58 [CORRECT]
+--------------------------------------------------
+Как создать класс Car, который наследует от класса Vehicle?
+Баллов: 1,00 из 1,00
+
+Options:
+     (text not extracted)
+  [V] (text not extracted)
+     (text not extracted)
+
+CORRECT ANSWER: class
+Car extends Vehicle {}
+
+--------------------------------------------------
+Вопрос 59 [CORRECT]
+--------------------------------------------------
+Что такое Box в Jetpack Compose?
+Баллов: 1,00 из 1,00
+
+Options:
+     (text not extracted)
+     (text not extracted)
+     (text not extracted)
+  [V] (text not extracted)
+
+CORRECT ANSWER: Контейнер для наложения элементов друг на друга
+
+--------------------------------------------------
+Вопрос 60 [CORRECT]
+--------------------------------------------------
+Что делает оператор !! в Kotlin?
+Баллов: 1,00 из 1,00
+
+Options:
+     (text not extracted)
+     (text not extracted)
+     (text not extracted)
+  [V] (text not extracted)
+
+CORRECT ANSWER: Генерирует исключение, если значение равно null
+
+--------------------------------------------------
+Вопрос 61 [WRONG]
+--------------------------------------------------
+Какая библиотека используется для навигации в Jetpack
+Compose?
+Баллов: 0,00 из 1,00
+
+Options:
+  [X] (text not extracted)
+     (text not extracted)
+     (text not extracted)
+     (text not extracted)
+
+CORRECT ANSWER: Navigation
+
+--------------------------------------------------
+Вопрос 62 [CORRECT]
+--------------------------------------------------
+Какой из следующих методов является абстрактным
+методом?
+Баллов: 1,00 из 1,00
+
+Options:
+  [V] (text not extracted)
+     (text not extracted)
+     (text not extracted)
+
+CORRECT ANSWER: abstract
+void start()
+
+--------------------------------------------------
+Вопрос 63 [CORRECT]
+--------------------------------------------------
+Какой метод используется для обработки кликов на
+кнопке?
+Баллов: 1,00 из 1,00
+
+Options:
+  [V] (text not extracted)
+     (text not extracted)
+     (text not extracted)
+     (text not extracted)
+
+CORRECT ANSWER: onClick
+
+--------------------------------------------------
+Вопрос 64 [CORRECT]
+--------------------------------------------------
+Как добавить элемент в ArrayList?
+Баллов: 1,00 из 1,00
+
+Options:
+     (text not extracted)
+  [V] (text not extracted)
+     (text not extracted)
+
+CORRECT ANSWER: arrayList.add(element)
+
+--------------------------------------------------
+Вопрос 65 [CORRECT]
+--------------------------------------------------
+Какой компонент используется для создания кнопки
+в Jetpack Compose?
+Баллов: 1,00 из 1,00
+
+Options:
+  [V] (text not extracted)
+     (text not extracted)
+     (text not extracted)
+     (text not extracted)
+
+CORRECT ANSWER: Button
+
+--------------------------------------------------
+Вопрос 66 [CORRECT]
+--------------------------------------------------
+Что такое Scaffold в Jetpack Compose?
+Баллов: 1,00 из 1,00
+
+Options:
+     (text not extracted)
+  [V] (text not extracted)
+     (text not extracted)
+     (text not extracted)
+
+CORRECT ANSWER: Компонент для создания сложных макетов с панелью
+приложений и нижней навигацией
+
+--------------------------------------------------
+Вопрос 67 [CORRECT]
+--------------------------------------------------
+Какой метод используется для добавления отступов
+к элементу?
+Баллов: 1,00 из 1,00
+
+Options:
+     (text not extracted)
+     (text not extracted)
+     (text not extracted)
+  [V] (text not extracted)
+
+CORRECT ANSWER: padding
+
+--------------------------------------------------
+Вопрос 68 [CORRECT]
+--------------------------------------------------
+Что делает функция rememberSaveable?
+Баллов: 1,00 из 1,00
+
+Options:
+     (text not extracted)
+     (text not extracted)
+  [V] (text not extracted)
+     (text not extracted)
+
+CORRECT ANSWER: Хранит состояние при пересоздании активностей или
+изменений конфигурации
+
+--------------------------------------------------
+Вопрос 69 [CORRECT]
+--------------------------------------------------
+Как добавить вертикальное или горизонтальное выравнивание
+в Row или Column?
+Баллов: 1,00 из 1,00
+
+Options:
+     (text not extracted)
+     (text not extracted)
+  [V] (text not extracted)
+     (text not extracted)
+
+CORRECT ANSWER: Использовать параметры horizontalAlignment и verticalArrangement
+
+--------------------------------------------------
+Вопрос 70 [WRONG]
+--------------------------------------------------
+Какой компонент используется для создания текстовых полей
+в Compose?
+Баллов: 0,00 из 1,00
+
+Options:
+     (text not extracted)
+  [X] (text not extracted)
+     (text not extracted)
+     (text not extracted)
+
+CORRECT ANSWER: TextField
+
+--------------------------------------------------
+Вопрос 71 [CORRECT]
+--------------------------------------------------
+Какой тип данных используется для хранения null в Kotlin?
+Баллов: 1,00 из 1,00
+
+Options:
+  [V] (text not extracted)
+     (text not extracted)
+     (text not extracted)
+     (text not extracted)
+
+CORRECT ANSWER: Nothing
+
+--------------------------------------------------
+Вопрос 72 [CORRECT]
+--------------------------------------------------
+Что делает LazyRow?
+Баллов: 1,00 из 1,00
+
+Options:
+     (text not extracted)
+     (text not extracted)
+  [V] (text not extracted)
+     (text not extracted)
+
+CORRECT ANSWER: Отображает горизонтальный список элементов
+
+--------------------------------------------------
+Вопрос 73 [CORRECT]
+--------------------------------------------------
+Как можно сделать элемент видимым или невидимым?
+Баллов: 1,00 из 1,00
+
+Options:
+     (text not extracted)
+  [V] (text not extracted)
+     (text not extracted)
+     (text not extracted)
+
+CORRECT ANSWER: Использовать Modifier.alpha
+
+--------------------------------------------------
+Вопрос 74 [CORRECT]
+--------------------------------------------------
+Что такое Canvas
+в Jetpack Compose?
+Баллов: 1,00 из 1,00
+
+Options:
+     (text not extracted)
+     (text not extracted)
+     (text not extracted)
+  [V] (text not extracted)
+
+CORRECT ANSWER: Компонент для рисования пользовательских
+графических элементов
+
+--------------------------------------------------
+Вопрос 75 [CORRECT]
+--------------------------------------------------
+Какой компонент используется для отображения
+изображения?
+Баллов: 1,00 из 1,00
+
+Options:
+     (text not extracted)
+  [V] (text not extracted)
+     (text not extracted)
+     (text not extracted)
+
+CORRECT ANSWER: Image
+
+--------------------------------------------------
+Вопрос 76 [WRONG]
+--------------------------------------------------
+Как задать закругленные углы элементу в Compose?
+Баллов: 0,00 из 1,00
+
+Options:
+  [X] (text not extracted)
+     (text not extracted)
+     (text not extracted)
+     (text not extracted)
+
+CORRECT ANSWER: Modifier.clip(RoundedCornerShape(...))
+
+--------------------------------------------------
+Вопрос 77 [CORRECT]
+--------------------------------------------------
+Какая функция используется для управления
+временем жизни анимации?
+Баллов: 1,00 из 1,00
+
+Options:
+     (text not extracted)
+     (text not extracted)
+     (text not extracted)
+  [V] (text not extracted)
+
+CORRECT ANSWER: AnimationSpec
+
+--------------------------------------------------
+Вопрос 78 [WRONG]
+--------------------------------------------------
+Как можно стилизовать текст в Jetpack Compose?
+Баллов: 0,00 из 1,00
+
+Options:
+     (text not extracted)
+     (text not extracted)
+  [X] (text not extracted)
+     (text not extracted)
+
+CORRECT ANSWER: Все вышеперечисленное
+
+--------------------------------------------------
+Вопрос 79 [CORRECT]
+--------------------------------------------------
+Какой метод используется для создания
+прокручиваемых списков?
+Баллов: 1,00 из 1,00
+
+Options:
+     (text not extracted)
+     (text not extracted)
+  [V] (text not extracted)
+     (text not extracted)
+
+CORRECT ANSWER: LazyColumn
+
+--------------------------------------------------
+Вопрос 80 [CORRECT]
+--------------------------------------------------
+Что делает Spacer?
+Баллов: 1,00 из 1,00
+
+Options:
+     (text not extracted)
+     (text not extracted)
+     (text not extracted)
+  [V] (text not extracted)
+
+CORRECT ANSWER: Создает пустое пространство между элементами
+
+--------------------------------------------------
+Вопрос 81 [CORRECT]
+--------------------------------------------------
+Как в Kotlin объявить переменную, которая может
+быть null?
+Баллов: 1,00 из 1,00
+
+Options:
+     (text not extracted)
+     (text not extracted)
+  [V] (text not extracted)
+     (text not extracted)
+
+CORRECT ANSWER: Добавить знак ? к типу
+
+--------------------------------------------------
+Вопрос 82 [WRONG]
+--------------------------------------------------
+Как можно организовать горизонтальное размещение
+элементов?
+Баллов: 0,00 из 1,00
+
+Options:
+     (text not extracted)
+     (text not extracted)
+  [X] (text not extracted)
+     (text not extracted)
+
+CORRECT ANSWER: Использовать Row
+
+--------------------------------------------------
+Вопрос 83 [CORRECT]
+--------------------------------------------------
+Как передать параметры в функцию-компонент?
+Баллов: 1,00 из 1,00
+
+Options:
+     (text not extracted)
+     (text not extracted)
+     (text not extracted)
+  [V] (text not extracted)
+
+CORRECT ANSWER: Передать параметры через аргументы функции
+
+--------------------------------------------------
+Вопрос 84 [CORRECT]
+--------------------------------------------------
+Какой параметр отвечает за обработку скроллинга
+в Jetpack Compose?
+Баллов: 1,00 из 1,00
+
+Options:
+     (text not extracted)
+  [V] (text not extracted)
+     (text not extracted)
+     (text not extracted)
+
+CORRECT ANSWER: Modifier.verticalScroll()
+
+--------------------------------------------------
+Вопрос 85 [CORRECT]
+--------------------------------------------------
+Какой метод используется для применения цвета к тексту?
+Баллов: 1,00 из 1,00
+
+Options:
+     (text not extracted)
+     (text not extracted)
+     (text not extracted)
+  [V] (text not extracted)
+
+CORRECT ANSWER: style = TextStyle(color = ...)
+
+--------------------------------------------------
+Вопрос 86 [CORRECT]
+--------------------------------------------------
+Что такое SideEffect в Jetpack Compose?
+Баллов: 1,00 из 1,00
+
+Options:
+  [V] (text not extracted)
+     (text not extracted)
+     (text not extracted)
+     (text not extracted)
+
+CORRECT ANSWER: Функция для создания побочных эффектов вне Compose
+
+--------------------------------------------------
+Вопрос 87 [CORRECT]
+--------------------------------------------------
+Какую функцию можно использовать для запуска
+корутины в Jetpack Compose?
+Баллов: 1,00 из 1,00
+
+Options:
+     (text not extracted)
+  [V] (text not extracted)
+     (text not extracted)
+     (text not extracted)
+
+CORRECT ANSWER: LaunchedEffect
+
+--------------------------------------------------
+Вопрос 88 [CORRECT]
+--------------------------------------------------
+Как можно изменить цвет фона в элементе?
+Баллов: 1,00 из 1,00
+
+Options:
+     (text not extracted)
+     (text not extracted)
+  [V] (text not extracted)
+     (text not extracted)
+
+CORRECT ANSWER: Modifier.background(color = ...)
+
+--------------------------------------------------
+Вопрос 89 [CORRECT]
+--------------------------------------------------
+Какой модификатор используется для указания
+высоты и ширины элемента?
+Баллов: 1,00 из 1,00
+
+Options:
+     (text not extracted)
+  [V] (text not extracted)
+     (text not extracted)
+     (text not extracted)
+
+CORRECT ANSWER: Modifier.size()
+
+--------------------------------------------------
+Вопрос 90 [WRONG]
+--------------------------------------------------
+Что такое rememberCoroutineScope в Jetpack
+Compose?
+Баллов: 0,00 из 1,00
+
+Options:
+     (text not extracted)
+  [X] (text not extracted)
+     (text not extracted)
+     (text not extracted)
+
+CORRECT ANSWER: Функция для создания нового скоупа корутин, привязанного
+к композиции
+
+--------------------------------------------------
+Вопрос 91 [CORRECT]
+--------------------------------------------------
+Что произойдет, если не вызвать setContent в Jetpack Compose?
+Баллов: 1,00 из 1,00
+
+Options:
+  [V] (text not extracted)
+     (text not extracted)
+     (text not extracted)
+     (text not extracted)
+
+CORRECT ANSWER: Приложение откроется, но интерфейс будет пустым
+
+--------------------------------------------------
+Вопрос 92 [CORRECT]
+--------------------------------------------------
+Что возвращает оператор is в Kotlin?
+Баллов: 1,00 из 1,00
+
+Options:
+  [V] (text not extracted)
+     (text not extracted)
+     (text not extracted)
+     (text not extracted)
+
+CORRECT ANSWER: Проверяет, является ли объект указанным типом
+
+--------------------------------------------------
+Вопрос 93 [CORRECT]
+--------------------------------------------------
+Что используется для создания адаптивных
+интерфейсов?
+Баллов: 1,00 из 1,00
+
+Options:
+     (text not extracted)
+     (text not extracted)
+     (text not extracted)
+  [V] (text not extracted)
+
+CORRECT ANSWER: ConstraintLayout
+
+--------------------------------------------------
+Вопрос 94 [CORRECT]
+--------------------------------------------------
+Как можно создать границы вокруг элемента?
+Баллов: 1,00 из 1,00
+
+Options:
+     (text not extracted)
+  [V] (text not extracted)
+     (text not extracted)
+     (text not extracted)
+
+CORRECT ANSWER: Modifier.border()
+
+--------------------------------------------------
+Вопрос 95 [CORRECT]
+--------------------------------------------------
+Какой компонент используется для отображения
+чекбокса?
+Баллов: 1,00 из 1,00
+
+Options:
+     (text not extracted)
+  [V] (text not extracted)
+     (text not extracted)
+     (text not extracted)
+
+CORRECT ANSWER: Checkbox
+
+--------------------------------------------------
+Вопрос 96 [CORRECT]
+--------------------------------------------------
+Что делает функция produceState в Jetpack Compose?
+Баллов: 1,00 из 1,00
+
+Options:
+     (text not extracted)
+  [V] (text not extracted)
+     (text not extracted)
+     (text not extracted)
+
+CORRECT ANSWER: Генерирует состояния, основанные на асинхронных
+данных
+
+--------------------------------------------------
+Вопрос 97 [CORRECT]
+--------------------------------------------------
+В проект добавили модель данных ADO.Net –
+базу данных College, в
+свою очередь VisualStudioсоздал
+класс CollegeEntities. Для
+чего необходимо создавать метод GetContext() в этом классе?
+Баллов: 1,00 из 1,00
+
+Options:
+     (text not extracted)
+     (text not extracted)
+  [V] (text not extracted)
+
+CORRECT ANSWER: GetContext() устанавливает связь между объектной моделью в VisualStudio
+и физической базой данных SQL Server.
+
+--------------------------------------------------
+Вопрос 98 [CORRECT]
+--------------------------------------------------
+В элемент DataGrid  добавили четыре колонки для атрибутов
+отношения Teacher.
+Какое основное свойство колонок необходимо настроить?
+
+·                   
+Для
+атрибута FirstName.
+
+·                   
+Для
+атрибута LastName.
+
+·                   
+Для
+атрибута gender.
+
+·                   
+Для
+атрибута birthday.
+Баллов: 1,00 из 1,00
+
+Options:
+     (text not extracted)
+  [V] (text not extracted)
+     (text not extracted)
+     (text not extracted)
+
+CORRECT ANSWER: Binding
+
+--------------------------------------------------
+Вопрос 99 [WRONG]
+--------------------------------------------------
+Каким образом можно создать список в Kotlin?
+Баллов: 0,00 из 1,00
+
+Options:
+     (text not extracted)
+  [X] (text not extracted)
+     (text not extracted)
+     (text not extracted)
+
+CORRECT ANSWER: Все вышеперечисленное
+
+--------------------------------------------------
+Вопрос 100 [CORRECT]
+--------------------------------------------------
+Если для элемента DataGrid
+настроить свойствоAutoGenerateColumns  на
+значениеtrue. Что
+будет с ним происходить?
+Баллов: 1,00 из 1,00
+
+Options:
+     (text not extracted)
+  [V] (text not extracted)
+     (text not extracted)
+
+CORRECT ANSWER: Колонки в элементе  DataGridгенерируются
+автоматические из класса.
+
+--------------------------------------------------
+Вопрос 101 [CORRECT]
+--------------------------------------------------
+Дана хранимая процедура. Сколько параметров она имеет?
+
+
+
+createprocedure New2  
+
+@name_modelvarchar(4)
+
+as
+
+select*frompc wheremodel
+= @name_model
+Баллов: 1,00 из 1,00
+
+Options:
+     (text not extracted)
+     (text not extracted)
+  [V] (text not extracted)
+     (text not extracted)
+
+CORRECT ANSWER: 1
+
+--------------------------------------------------
+Вопрос 102 [CORRECT]
+--------------------------------------------------
+Дана хранимая процедура. Есть ли в ней выходной параметр?
+
+
+
+createprocedure new4
+
+@aint, @b int, @c
+intoutput
+
+as
+
+set @c =@a+@b
+Баллов: 1,00 из 1,00
+
+Options:
+  [V] (text not extracted)
+     (text not extracted)
+
+CORRECT ANSWER: Да
+
+--------------------------------------------------
+Вопрос 103 [CORRECT]
+--------------------------------------------------
+Дана хранимая процедура. Выберите команду, которая к ней
+обращается.
+
+
+
+createprocedure new4
+
+@aint, @b int, @c
+intoutput
+
+as
+
+set @c =@a+@b
+Баллов: 1,00 из 1,00
+
+Options:
+     (text not extracted)
+  [V] (text not extracted)
+     (text not extracted)
+
+CORRECT ANSWER: declare @c intexec new4 10, 15, @c
+output
+
+--------------------------------------------------
+Вопрос 104 [CORRECT]
+--------------------------------------------------
+Дан метод void F(int t, int &s) {}. Как обратиться к
+методу F, передать значения и получить результат?void F(int
+t,int &s)
+
+{    s = 0;
+
+    while (t > 0)
+
+    {
+
+        s += (t % 10);
+
+        t /= 10;
+
+    } }
+Баллов: 1,00 из 1,00
+
+Options:
+     (text not extracted)
+     (text not extracted)
+  [V] (text not extracted)
+     (text not extracted)
+
+CORRECT ANSWER: Правильные ответы: int t = 1234; int s; F(t, s);
+cout << s;, int s = 0; F(4321, s); cout << s;
+
+--------------------------------------------------
+Вопрос 105 [WRONG]
+--------------------------------------------------
+Объявите массив А, который будет хранить
+символьные данные.
+Баллов: 0,00 из 1,00
+
+Your answer: char A[100];
+
+CORRECT ANSWER: char А[10]
+
+--------------------------------------------------
+Вопрос 106 [WRONG]
+--------------------------------------------------
+Как
+создать константу p «10 в степени 12» C++?
+Баллов: 0,00 из 1,00
+
+Your answer: constexpr long long p = 1000000000000LL;
+
+CORRECT ANSWER: const int p = pow(10,12);
+
+--------------------------------------------------
+Вопрос 107 [CORRECT]
+--------------------------------------------------
+Что
+будет на экране после выполнения программы?
+
+#include
+<iostream>
+
+main()
+
+{float
+a=6.2510;
+
+//
+printf_s("a=");
+
+printf_s("%2.2f",a);
+}
+Баллов: 1,00 из 1,00
+
+Your answer: 6.25
+
+CORRECT ANSWER: 6.25
+
+--------------------------------------------------
+Вопрос 108 [CORRECT]
+--------------------------------------------------
+Укажите
+номер строки с ошибкой в программе. Записать цифру
+
+1 #include
+<iostream>
+
+2 main()
+
+3 { int x,
+y; scanf_s("%d %d", &x, &y);
+
+4 if (x =
+y) printf_s("равны");
+
+5 else
+printf_s("не равны");
+Баллов: 1,00 из 1,00
+
+Your answer: 4
+
+CORRECT ANSWER: 4
+
+--------------------------------------------------
+Вопрос 109 [WRONG]
+--------------------------------------------------
+Упростите
+вложенные операторы if, заменив  их одним оператором if.
+
+if(i>0) if(i<10) std::cout<<”i=’<<i;
+Баллов: 0,00 из 1,00
+
+Your answer: if (i > 0 && i < 10)     std::cout << "i=" << i;
+
+CORRECT ANSWER: if (i>0 && i<10) std::cout<<"i="<<i;
+
+--------------------------------------------------
+Вопрос 110 [CORRECT]
+--------------------------------------------------
+Запишите математическую формулу на языке
+программирования С++.ответ нужно записать без отступов в начале, конце и внутри формулы
+Баллов: 1,00 из 1,00
+
+Your answer: f=(x-y)/(x+2*y)*x-y
+
+CORRECT ANSWER: f=(x-y)/(x+2 y) x-y
+
+--------------------------------------------------
+Вопрос 111 [CORRECT]
+--------------------------------------------------
+В проект добавили модель данных ADO.Net – базу данных College,
+в свою очередь VisualStudioсоздал
+класс CollegeEntities.
+Пропишите метод GetContext()
+для класса CollegeEntities.
+Вставьте пропущенное слово. 
+
+private static
+CollegeEntities  _context;
+
+public
+static CollegeEntitiesGetContext()
+
+{
+
+            if (_context==NULL)
+
+                                               _context
+=       new CollegeEntities();
+
+return ? ;
+
+}
+Баллов: 1,00 из 1,00
+
+Your answer: _context
+
+CORRECT ANSWER: _context
+
+--------------------------------------------------
+Вопрос 112 [CORRECT]
+--------------------------------------------------
+На форму поместили DataGrid, в котором должно отображаться отношение Teacher (CollegeEntities)с атрибутами FirstName, LastName, gender, birthday. DataGridдали
+имя TeacherDG.Напишите
+строку кода, которая задает источник данных для DataGrid. Вставьте пропущенное слово.
+
+TeacherDG.ItemsSource
+= CollegeEntities.GetContext().?.List();
+Баллов: 1,00 из 1,00
+
+Your answer: Teacher
+
+CORRECT ANSWER: Teacher
+
+--------------------------------------------------
+Вопрос 113 [CORRECT]
+--------------------------------------------------
+Вычислите
+значение выражения, при a=true, b=false,c=true.  Ответ записать без пробелов в начале и концеf = a&&b||a&&c
+Баллов: 1,00 из 1,00
+
+Your answer: true
+
+CORRECT ANSWER: 1
+
+--------------------------------------------------
+Вопрос 114 [CORRECT]
+--------------------------------------------------
+Дана хранимая процедура. Какую команду SQL нужно написать,
+чтобы к ней обратиться? Команду напишите нижнем 
+регистре.
+
+
+
+createprocedure New 
+
+as
+
+print'Первая процедура'
+Баллов: 1,00 из 1,00
+
+Your answer: exec new
+
+CORRECT ANSWER: exec new
+
+--------------------------------------------------
+Вопрос 115 [CORRECT]
+--------------------------------------------------
+Дана хранимая процедура. Данная процедура выводит все
+компьютеры заданной модели. Как вызвать процедуру, чтобы вывести все модели с
+номером 1211? Напишите полную команду exec ... Команду напишите в нижнем
+регистре.
+
+ 
+
+
+
+createprocedure New2  
+
+@name_modelvarchar(4)
+
+as
+
+select*frompc wheremodel = @name_model
+Баллов: 1,00 из 1,00
+
+Your answer: exec new2 '1211'
+
+CORRECT ANSWER: exec new2 '1211'
+
+--------------------------------------------------
+Вопрос 116 [CORRECT]
+--------------------------------------------------
+Вычислите
+значение выражения, при x=10 и y=-10
+
+f=x>10 && y<10 || x!=y
+Баллов: 1,00 из 1,00
+
+Your answer: true
+
+CORRECT ANSWER: 1
+
+--------------------------------------------------
+Вопрос 117 [CORRECT]
+--------------------------------------------------
+В
+программе создан метод void print_del(int a). Какой результат получится, если в
+качестве параметра ей передать значение 10.void
+print_del(int a)
+
+{
+
+    cout<<a<<" ";
+
+    for (int i=1;i<=a;i++)
+
+    {
+
+                if (a%i==0)
+
+            cout<<"+";
+
+   }
+
+    cout<<endl; }
+Баллов: 1,00 из 1,00
+
+Your answer: 10 ++++
+
+CORRECT ANSWER: 10++++
+
+============================================================
+TOTAL: 117 questions
+  Correct: 102 | Wrong: 15 | Partial: 0
+============================================================

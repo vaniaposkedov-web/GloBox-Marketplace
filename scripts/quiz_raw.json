@@ -1,0 +1,3511 @@
+[
+  {
+    "n": "Вопрос 1",
+    "t": "Объявите\nпеременные (соотнесите тип данных и название переменной)",
+    "tp": "ma",
+    "s": "V",
+    "g": "Баллов: 1,00 из 1,00",
+    "ra": "переменная temp позволит проверить\nистинность высказывания → bool, в переменной age будет хранится возраст → int, в переменную name занесут кличку\nживотного → string",
+    "ua": "",
+    "opts": []
+  },
+  {
+    "n": "Вопрос 2",
+    "t": "Найдите\nзначения всех переменных.\n\nv=5; v++; y=++v; z=v%6; a=v/3; z-=4; z*=1; --z;",
+    "tp": "ma",
+    "s": "V",
+    "g": "Баллов: 1,00 из 1,00",
+    "ra": "y → 7, z → -4, a → 2, v → 7",
+    "ua": "",
+    "opts": []
+  },
+  {
+    "n": "Вопрос 3",
+    "t": "Определите\nзначение всех переменных.\n\nint c=8;\n\nint a=c%8,\nb;\n\nswitch(a)\n\n{\n\ncase 0:\ncase 1: b=c*a; break; \n\ncase 2:\ncase 3: b=c/a; break; \n\ncase 4:\ncase 5: b=c+a; break; \n\ndefault:\nb=c;\n\n}",
+    "tp": "ma",
+    "s": "V",
+    "g": "Баллов: 1,00 из 1,00",
+    "ra": "b → 0, c → 8, a → 0",
+    "ua": "",
+    "opts": []
+  },
+  {
+    "n": "Вопрос 4",
+    "t": "Какое ключевое слово используется для создания\nнеизменяемой переменной?",
+    "tp": "mc",
+    "s": "V",
+    "g": "Баллов: 1,00 из 1,00",
+    "ra": "val",
+    "ua": "",
+    "opts": [
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": true,
+        "ok": true,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      }
+    ]
+  },
+  {
+    "n": "Вопрос 5",
+    "t": "Какой модификатор доступа по умолчанию\nиспользуется в Kotlin?",
+    "tp": "mc",
+    "s": "V",
+    "g": "Баллов: 1,00 из 1,00",
+    "ra": "public",
+    "ua": "",
+    "opts": [
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": true,
+        "ok": true,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      }
+    ]
+  },
+  {
+    "n": "Вопрос 6",
+    "t": "Дан метод int F(int a, int b). Что вернет метод, если ему передать\nдва числа 15 и 25? \n\nint F(int\na, int b)\n\n{\n\n    int k = 1;\n\n    for (int i = 2; i <= b; i++)\n\n        if (a % i == 0 && b % i == 0)\n\n            k = i;\n\n    return k; }",
+    "tp": "mc",
+    "s": "V",
+    "g": "Баллов: 1,00 из 1,00",
+    "ra": "5",
+    "ua": "",
+    "opts": [
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": true,
+        "ok": true,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      }
+    ]
+  },
+  {
+    "n": "Вопрос 7",
+    "t": "Какой\nиндекс имеет последний элемент массива A, если размер массива равен 10?",
+    "tp": "mc",
+    "s": "V",
+    "g": "Баллов: 1,00 из 1,00",
+    "ra": "9",
+    "ua": "",
+    "opts": [
+      {
+        "t": "",
+        "sel": true,
+        "ok": true,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      }
+    ]
+  },
+  {
+    "n": "Вопрос 8",
+    "t": "Выполните\nручную отладку фрагмента программы и определите значения переменных.\n\nint a[6]={4,\n5, 6, 8,7, 8};\n\nfor (int\ni=1;i<=5;i++) if (i%2!=1) a[i]*=3;",
+    "tp": "mc",
+    "s": "V",
+    "g": "Баллов: 1,00 из 1,00",
+    "ra": "5,18,8,21,8",
+    "ua": "",
+    "opts": [
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": true,
+        "ok": true,
+        "bad": false
+      }
+    ]
+  },
+  {
+    "n": "Вопрос 9",
+    "t": "Какой символ используется для комментариев в\nодной строке С++?",
+    "tp": "mc",
+    "s": "V",
+    "g": "Баллов: 1,00 из 1,00",
+    "ra": "//",
+    "ua": "",
+    "opts": [
+      {
+        "t": "",
+        "sel": true,
+        "ok": true,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      }
+    ]
+  },
+  {
+    "n": "Вопрос 10",
+    "t": "Что возвращает функция \"main()\"в C++?",
+    "tp": "mc",
+    "s": "V",
+    "g": "Баллов: 1,00 из 1,00",
+    "ra": "int",
+    "ua": "",
+    "opts": [
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": true,
+        "ok": true,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      }
+    ]
+  },
+  {
+    "n": "Вопрос 11",
+    "t": "Какой метод является точкой входа в\nJava-программу?",
+    "tp": "mc",
+    "s": "V",
+    "g": "Баллов: 1,00 из 1,00",
+    "ra": "main()",
+    "ua": "",
+    "opts": [
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": true,
+        "ok": true,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      }
+    ]
+  },
+  {
+    "n": "Вопрос 12",
+    "t": "Какой из следующих модификаторов доступа\nпозволяет доступ только внутри класса?",
+    "tp": "mc",
+    "s": "V",
+    "g": "Баллов: 1,00 из 1,00",
+    "ra": "private",
+    "ua": "",
+    "opts": [
+      {
+        "t": "",
+        "sel": true,
+        "ok": true,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      }
+    ]
+  },
+  {
+    "n": "Вопрос 13",
+    "t": "Какой тип цикла используется для итерации, когда\nколичество итераций заранее известно?",
+    "tp": "mc",
+    "s": "V",
+    "g": "Баллов: 1,00 из 1,00",
+    "ra": "for",
+    "ua": "",
+    "opts": [
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": true,
+        "ok": true,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      }
+    ]
+  },
+  {
+    "n": "Вопрос 14",
+    "t": "Какой из следующих методов используется для\nвывода на экран C++?",
+    "tp": "mc",
+    "s": "V",
+    "g": "Баллов: 1,00 из 1,00",
+    "ra": "cout",
+    "ua": "",
+    "opts": [
+      {
+        "t": "",
+        "sel": true,
+        "ok": true,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      }
+    ]
+  },
+  {
+    "n": "Вопрос 15",
+    "t": "Что делает оператор ++ перед переменной?",
+    "tp": "mc",
+    "s": "V",
+    "g": "Баллов: 1,00 из 1,00",
+    "ra": "Увеличивает переменную на 1",
+    "ua": "",
+    "opts": [
+      {
+        "t": "",
+        "sel": true,
+        "ok": true,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      }
+    ]
+  },
+  {
+    "n": "Вопрос 16",
+    "t": "Какой из следующих типов данных является\nцелочисленным?",
+    "tp": "mc",
+    "s": "V",
+    "g": "Баллов: 1,00 из 1,00",
+    "ra": "int",
+    "ua": "",
+    "opts": [
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": true,
+        "ok": true,
+        "bad": false
+      }
+    ]
+  },
+  {
+    "n": "Вопрос 17",
+    "t": "Какой оператор используется для сравнения двух\nзначений?",
+    "tp": "mc",
+    "s": "V",
+    "g": "Баллов: 1,00 из 1,00",
+    "ra": "==",
+    "ua": "",
+    "opts": [
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": true,
+        "ok": true,
+        "bad": false
+      }
+    ]
+  },
+  {
+    "n": "Вопрос 18",
+    "t": "Какой из следующих типов данных является ссылочным?",
+    "tp": "mc",
+    "s": "V",
+    "g": "Баллов: 1,00 из 1,00",
+    "ra": "string&",
+    "ua": "",
+    "opts": [
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": true,
+        "ok": true,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      }
+    ]
+  },
+  {
+    "n": "Вопрос 19",
+    "t": "Какой из следующих типов является\nпримитивным в Java?",
+    "tp": "mc",
+    "s": "V",
+    "g": "Баллов: 1,00 из 1,00",
+    "ra": "int",
+    "ua": "",
+    "opts": [
+      {
+        "t": "",
+        "sel": true,
+        "ok": true,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      }
+    ]
+  },
+  {
+    "n": "Вопрос 20",
+    "t": "Какой оператор используется для\nсравнения двух значений?",
+    "tp": "mc",
+    "s": "V",
+    "g": "Баллов: 1,00 из 1,00",
+    "ra": "==",
+    "ua": "",
+    "opts": [
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": true,
+        "ok": true,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      }
+    ]
+  },
+  {
+    "n": "Вопрос 21",
+    "t": "Какой\nиз следующих операторов используется для логического \"И\"?",
+    "tp": "mc",
+    "s": "V",
+    "g": "Баллов: 1,00 из 1,00",
+    "ra": "&&",
+    "ua": "",
+    "opts": [
+      {
+        "t": "",
+        "sel": true,
+        "ok": true,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      }
+    ]
+  },
+  {
+    "n": "Вопрос 22",
+    "t": "Как объявить массив целых чисел в Java?",
+    "tp": "mc",
+    "s": "V",
+    "g": "Баллов: 1,00 из 1,00",
+    "ra": "Оба\nварианта верны",
+    "ua": "",
+    "opts": [
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": true,
+        "ok": true,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      }
+    ]
+  },
+  {
+    "n": "Вопрос 23",
+    "t": "Какой из следующих модификаторов доступа\nпозволяет доступ только внутри одного класса?",
+    "tp": "mc",
+    "s": "V",
+    "g": "Баллов: 1,00 из 1,00",
+    "ra": "private",
+    "ua": "",
+    "opts": [
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": true,
+        "ok": true,
+        "bad": false
+      }
+    ]
+  },
+  {
+    "n": "Вопрос 24",
+    "t": "Какой метод используется для\nпреобразования строки в целое число?",
+    "tp": "mc",
+    "s": "X",
+    "g": "Баллов: 0,00 из 1,00",
+    "ra": "Integer.parseInt()",
+    "ua": "",
+    "opts": [
+      {
+        "t": "",
+        "sel": true,
+        "ok": false,
+        "bad": true
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      }
+    ]
+  },
+  {
+    "n": "Вопрос 25",
+    "t": "Какой из следующих операторов\nиспользуется для получения остатка от деления?",
+    "tp": "mc",
+    "s": "V",
+    "g": "Баллов: 1,00 из 1,00",
+    "ra": "%",
+    "ua": "",
+    "opts": [
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": true,
+        "ok": true,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      }
+    ]
+  },
+  {
+    "n": "Вопрос 26",
+    "t": "Какой из следующих циклов используется\nдля итерации по элементам массива?",
+    "tp": "mc",
+    "s": "V",
+    "g": "Баллов: 1,00 из 1,00",
+    "ra": "for",
+    "ua": "",
+    "opts": [
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": true,
+        "ok": true,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      }
+    ]
+  },
+  {
+    "n": "Вопрос 27",
+    "t": "Что такое data\nclass в Kotlin?",
+    "tp": "mc",
+    "s": "V",
+    "g": "Баллов: 1,00 из 1,00",
+    "ra": "Класс, автоматически генерирующий методы equals,\nhashCode, toString и copy",
+    "ua": "",
+    "opts": [
+      {
+        "t": "",
+        "sel": true,
+        "ok": true,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      }
+    ]
+  },
+  {
+    "n": "Вопрос 28",
+    "t": "Какой класс используется для работы с\nисключениями в Java?",
+    "tp": "mc",
+    "s": "X",
+    "g": "Баллов: 0,00 из 1,00",
+    "ra": "Exception",
+    "ua": "",
+    "opts": [
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": true,
+        "ok": false,
+        "bad": true
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      }
+    ]
+  },
+  {
+    "n": "Вопрос 29",
+    "t": "Что такое JDK, JRE и JVM?",
+    "tp": "mc",
+    "s": "V",
+    "g": "Баллов: 1,00 из 1,00",
+    "ra": "JDK — это Java Development Kit, JRE — Java Runtime\nEnvironment, JVM — Java Virtual Machine.",
+    "ua": "",
+    "opts": [
+      {
+        "t": "",
+        "sel": true,
+        "ok": true,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      }
+    ]
+  },
+  {
+    "n": "Вопрос 30",
+    "t": "В чем разница между компиляцией и\nинтерпретацией в контексте Java?",
+    "tp": "mc",
+    "s": "V",
+    "g": "Баллов: 1,00 из 1,00",
+    "ra": "Компиляция\n— это преобразование исходного кода в байт-код, интерпретация — выполнение\nэтого байт-кода.",
+    "ua": "",
+    "opts": [
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": true,
+        "ok": true,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      }
+    ]
+  },
+  {
+    "n": "Вопрос 31",
+    "t": "Что такое garbage\ncollection в Java?",
+    "tp": "mc",
+    "s": "V",
+    "g": "Баллов: 1,00 из 1,00",
+    "ra": "Процесс освобождения памяти от неиспользуемых объектов.",
+    "ua": "",
+    "opts": [
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": true,
+        "ok": true,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      }
+    ]
+  },
+  {
+    "n": "Вопрос 32",
+    "t": "Как работает система типов в Java?",
+    "tp": "mc",
+    "s": "V",
+    "g": "Баллов: 1,00 из 1,00",
+    "ra": "Примитивные\nтипы хранят значения, а ссылочные — ссылки на объекты.",
+    "ua": "",
+    "opts": [
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": true,
+        "ok": true,
+        "bad": false
+      }
+    ]
+  },
+  {
+    "n": "Вопрос 33",
+    "t": "Что такое исключения в Java?",
+    "tp": "mc",
+    "s": "V",
+    "g": "Баллов: 1,00 из 1,00",
+    "ra": "Ошибки, которые возникают во время выполнения программы.",
+    "ua": "",
+    "opts": [
+      {
+        "t": "",
+        "sel": true,
+        "ok": true,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      }
+    ]
+  },
+  {
+    "n": "Вопрос 34",
+    "t": "Какой принцип ООП подразумевает\nскрытие данных?",
+    "tp": "mc",
+    "s": "V",
+    "g": "Баллов: 1,00 из 1,00",
+    "ra": "Инкапсуляция",
+    "ua": "",
+    "opts": [
+      {
+        "t": "",
+        "sel": true,
+        "ok": true,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      }
+    ]
+  },
+  {
+    "n": "Вопрос 35",
+    "t": "Какой из следующих\nмодификаторов используется для создания наследуемого класса?",
+    "tp": "mc",
+    "s": "V",
+    "g": "Баллов: 1,00 из 1,00",
+    "ra": "abstract",
+    "ua": "",
+    "opts": [
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": true,
+        "ok": true,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      }
+    ]
+  },
+  {
+    "n": "Вопрос 36",
+    "t": "Что такое перегрузка метода?",
+    "tp": "mc",
+    "s": "V",
+    "g": "Баллов: 1,00 из 1,00",
+    "ra": "Создание\nметода с тем же именем, но с другим количеством параметров",
+    "ua": "",
+    "opts": [
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": true,
+        "ok": true,
+        "bad": false
+      }
+    ]
+  },
+  {
+    "n": "Вопрос 37",
+    "t": "Какой из следующих принципов\nООП позволяет использовать один интерфейс для разных типов объектов?",
+    "tp": "mc",
+    "s": "V",
+    "g": "Баллов: 1,00 из 1,00",
+    "ra": "Полиморфизм",
+    "ua": "",
+    "opts": [
+      {
+        "t": "",
+        "sel": true,
+        "ok": true,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      }
+    ]
+  },
+  {
+    "n": "Вопрос 38",
+    "t": "Какой оператор используется для проверки на null?",
+    "tp": "mc",
+    "s": "V",
+    "g": "Баллов: 1,00 из 1,00",
+    "ra": "?.",
+    "ua": "",
+    "opts": [
+      {
+        "t": "",
+        "sel": true,
+        "ok": true,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      }
+    ]
+  },
+  {
+    "n": "Вопрос 39",
+    "t": "Какой ключевой слово\nиспользуется для создания интерфейса в Java?",
+    "tp": "mc",
+    "s": "V",
+    "g": "Баллов: 1,00 из 1,00",
+    "ra": "interface",
+    "ua": "",
+    "opts": [
+      {
+        "t": "",
+        "sel": true,
+        "ok": true,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      }
+    ]
+  },
+  {
+    "n": "Вопрос 40",
+    "t": "Что происходит при\nпереопределении метода?",
+    "tp": "mc",
+    "s": "V",
+    "g": "Баллов: 1,00 из 1,00",
+    "ra": "Метод в дочернем классе имеет ту же сигнатуру,\nчто и в родительском",
+    "ua": "",
+    "opts": [
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": true,
+        "ok": true,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      }
+    ]
+  },
+  {
+    "n": "Вопрос 41",
+    "t": "Какой из следующих классов\nявляется абстрактным?",
+    "tp": "mc",
+    "s": "V",
+    "g": "Баллов: 1,00 из 1,00",
+    "ra": "abstract class",
+    "ua": "",
+    "opts": [
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": true,
+        "ok": true,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      }
+    ]
+  },
+  {
+    "n": "Вопрос 42",
+    "t": "Какой метод вызывается при\nсоздании объекта класса?",
+    "tp": "mc",
+    "s": "V",
+    "g": "Баллов: 1,00 из 1,00",
+    "ra": "метод с именем класса",
+    "ua": "",
+    "opts": [
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": true,
+        "ok": true,
+        "bad": false
+      }
+    ]
+  },
+  {
+    "n": "Вопрос 43",
+    "t": "Какой из следующих методов\nиспользуется для получения доступа к приватным полям класса?",
+    "tp": "mc",
+    "s": "X",
+    "g": "Баллов: 0,00 из 1,00",
+    "ra": "getter",
+    "ua": "",
+    "opts": [
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": true,
+        "ok": false,
+        "bad": true
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      }
+    ]
+  },
+  {
+    "n": "Вопрос 44",
+    "t": "Что такое композиций в ООП?",
+    "tp": "mc",
+    "s": "V",
+    "g": "Баллов: 1,00 из 1,00",
+    "ra": "Включение\nодного объекта в другой",
+    "ua": "",
+    "opts": [
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": true,
+        "ok": true,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      }
+    ]
+  },
+  {
+    "n": "Вопрос 45",
+    "t": "Что такое Jetpack Compose?",
+    "tp": "mc",
+    "s": "V",
+    "g": "Баллов: 1,00 из 1,00",
+    "ra": "Фреймворк для декларативного создания\nпользовательского интерфейса",
+    "ua": "",
+    "opts": [
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": true,
+        "ok": true,
+        "bad": false
+      }
+    ]
+  },
+  {
+    "n": "Вопрос 46",
+    "t": "Что такое инкапсуляция?",
+    "tp": "mc",
+    "s": "V",
+    "g": "Баллов: 1,00 из 1,00",
+    "ra": "Скрытие\nвнутренней реализации объекта и предоставление доступа только через методы.",
+    "ua": "",
+    "opts": [
+      {
+        "t": "",
+        "sel": true,
+        "ok": true,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      }
+    ]
+  },
+  {
+    "n": "Вопрос 47",
+    "t": "Какой аннотацией обозначается функция-компонент\nв Compose?",
+    "tp": "mc",
+    "s": "V",
+    "g": "Баллов: 1,00 из 1,00",
+    "ra": "@Composable",
+    "ua": "",
+    "opts": [
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": true,
+        "ok": true,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      }
+    ]
+  },
+  {
+    "n": "Вопрос 48",
+    "t": "Что используется для управления состоянием в Jetpack\nCompose?",
+    "tp": "mc",
+    "s": "X",
+    "g": "Баллов: 0,00 из 1,00",
+    "ra": "Все вышеперечисленное",
+    "ua": "",
+    "opts": [
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": true,
+        "ok": false,
+        "bad": true
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      }
+    ]
+  },
+  {
+    "n": "Вопрос 49",
+    "t": "Как объявить функцию в Kotlin?",
+    "tp": "mc",
+    "s": "V",
+    "g": "Баллов: 1,00 из 1,00",
+    "ra": "fun",
+    "ua": "",
+    "opts": [
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": true,
+        "ok": true,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      }
+    ]
+  },
+  {
+    "n": "Вопрос 50",
+    "t": "Какой из следующих фрагментов кода правильно создает\nобъект класса String?",
+    "tp": "mc",
+    "s": "V",
+    "g": "Баллов: 1,00 из 1,00",
+    "ra": "Оба варианта правильные.",
+    "ua": "",
+    "opts": [
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": true,
+        "ok": true,
+        "bad": false
+      }
+    ]
+  },
+  {
+    "n": "Вопрос 51",
+    "t": "Какой метод используется для установки\nсодержимого в Compose Activity?",
+    "tp": "mc",
+    "s": "V",
+    "g": "Баллов: 1,00 из 1,00",
+    "ra": "setContent()",
+    "ua": "",
+    "opts": [
+      {
+        "t": "",
+        "sel": true,
+        "ok": true,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      }
+    ]
+  },
+  {
+    "n": "Вопрос 52",
+    "t": "Какой оператор используется для хранения состояния в Compose?",
+    "tp": "mc",
+    "s": "V",
+    "g": "Баллов: 1,00 из 1,00",
+    "ra": "remember",
+    "ua": "",
+    "opts": [
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": true,
+        "ok": true,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      }
+    ]
+  },
+  {
+    "n": "Вопрос 53",
+    "t": "Какой метод используется для получения длины строки в Java?",
+    "tp": "mc",
+    "s": "V",
+    "g": "Баллов: 1,00 из 1,00",
+    "ra": "length()",
+    "ua": "",
+    "opts": [
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": true,
+        "ok": true,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      }
+    ]
+  },
+  {
+    "n": "Вопрос 54",
+    "t": "Что такое Modifier\nв Jetpack Compose?",
+    "tp": "mc",
+    "s": "V",
+    "g": "Баллов: 1,00 из 1,00",
+    "ra": "Объект для стилизации и настройки UI-элементов",
+    "ua": "",
+    "opts": [
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": true,
+        "ok": true,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      }
+    ]
+  },
+  {
+    "n": "Вопрос 55",
+    "t": "Какой из следующих операторов используется для\nсравнения строк в Java?",
+    "tp": "mc",
+    "s": "X",
+    "g": "Баллов: 0,00 из 1,00",
+    "ra": "equals()",
+    "ua": "",
+    "opts": [
+      {
+        "t": "",
+        "sel": true,
+        "ok": false,
+        "bad": true
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      }
+    ]
+  },
+  {
+    "n": "Вопрос 56",
+    "t": "Какой элемент используется для отображения\nтекста в Jetpack Compose?",
+    "tp": "mc",
+    "s": "V",
+    "g": "Баллов: 1,00 из 1,00",
+    "ra": "Text()",
+    "ua": "",
+    "opts": [
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": true,
+        "ok": true,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      }
+    ]
+  },
+  {
+    "n": "Вопрос 57",
+    "t": "Как можно создать вертикальный список элементов?",
+    "tp": "mc",
+    "s": "V",
+    "g": "Баллов: 1,00 из 1,00",
+    "ra": "LazyColumn",
+    "ua": "",
+    "opts": [
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": true,
+        "ok": true,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      }
+    ]
+  },
+  {
+    "n": "Вопрос 58",
+    "t": "Как создать класс Car, который наследует от класса Vehicle?",
+    "tp": "mc",
+    "s": "V",
+    "g": "Баллов: 1,00 из 1,00",
+    "ra": "class\nCar extends Vehicle {}",
+    "ua": "",
+    "opts": [
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": true,
+        "ok": true,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      }
+    ]
+  },
+  {
+    "n": "Вопрос 59",
+    "t": "Что такое Box в Jetpack Compose?",
+    "tp": "mc",
+    "s": "V",
+    "g": "Баллов: 1,00 из 1,00",
+    "ra": "Контейнер для наложения элементов друг на друга",
+    "ua": "",
+    "opts": [
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": true,
+        "ok": true,
+        "bad": false
+      }
+    ]
+  },
+  {
+    "n": "Вопрос 60",
+    "t": "Что делает оператор !! в Kotlin?",
+    "tp": "mc",
+    "s": "V",
+    "g": "Баллов: 1,00 из 1,00",
+    "ra": "Генерирует исключение, если значение равно null",
+    "ua": "",
+    "opts": [
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": true,
+        "ok": true,
+        "bad": false
+      }
+    ]
+  },
+  {
+    "n": "Вопрос 61",
+    "t": "Какая библиотека используется для навигации в Jetpack\nCompose?",
+    "tp": "mc",
+    "s": "X",
+    "g": "Баллов: 0,00 из 1,00",
+    "ra": "Navigation",
+    "ua": "",
+    "opts": [
+      {
+        "t": "",
+        "sel": true,
+        "ok": false,
+        "bad": true
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      }
+    ]
+  },
+  {
+    "n": "Вопрос 62",
+    "t": "Какой из следующих методов является абстрактным\nметодом?",
+    "tp": "mc",
+    "s": "V",
+    "g": "Баллов: 1,00 из 1,00",
+    "ra": "abstract\nvoid start()",
+    "ua": "",
+    "opts": [
+      {
+        "t": "",
+        "sel": true,
+        "ok": true,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      }
+    ]
+  },
+  {
+    "n": "Вопрос 63",
+    "t": "Какой метод используется для обработки кликов на\nкнопке?",
+    "tp": "mc",
+    "s": "V",
+    "g": "Баллов: 1,00 из 1,00",
+    "ra": "onClick",
+    "ua": "",
+    "opts": [
+      {
+        "t": "",
+        "sel": true,
+        "ok": true,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      }
+    ]
+  },
+  {
+    "n": "Вопрос 64",
+    "t": "Как добавить элемент в ArrayList?",
+    "tp": "mc",
+    "s": "V",
+    "g": "Баллов: 1,00 из 1,00",
+    "ra": "arrayList.add(element)",
+    "ua": "",
+    "opts": [
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": true,
+        "ok": true,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      }
+    ]
+  },
+  {
+    "n": "Вопрос 65",
+    "t": "Какой компонент используется для создания кнопки\nв Jetpack Compose?",
+    "tp": "mc",
+    "s": "V",
+    "g": "Баллов: 1,00 из 1,00",
+    "ra": "Button",
+    "ua": "",
+    "opts": [
+      {
+        "t": "",
+        "sel": true,
+        "ok": true,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      }
+    ]
+  },
+  {
+    "n": "Вопрос 66",
+    "t": "Что такое Scaffold в Jetpack Compose?",
+    "tp": "mc",
+    "s": "V",
+    "g": "Баллов: 1,00 из 1,00",
+    "ra": "Компонент для создания сложных макетов с панелью\nприложений и нижней навигацией",
+    "ua": "",
+    "opts": [
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": true,
+        "ok": true,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      }
+    ]
+  },
+  {
+    "n": "Вопрос 67",
+    "t": "Какой метод используется для добавления отступов\nк элементу?",
+    "tp": "mc",
+    "s": "V",
+    "g": "Баллов: 1,00 из 1,00",
+    "ra": "padding",
+    "ua": "",
+    "opts": [
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": true,
+        "ok": true,
+        "bad": false
+      }
+    ]
+  },
+  {
+    "n": "Вопрос 68",
+    "t": "Что делает функция rememberSaveable?",
+    "tp": "mc",
+    "s": "V",
+    "g": "Баллов: 1,00 из 1,00",
+    "ra": "Хранит состояние при пересоздании активностей или\nизменений конфигурации",
+    "ua": "",
+    "opts": [
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": true,
+        "ok": true,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      }
+    ]
+  },
+  {
+    "n": "Вопрос 69",
+    "t": "Как добавить вертикальное или горизонтальное выравнивание\nв Row или Column?",
+    "tp": "mc",
+    "s": "V",
+    "g": "Баллов: 1,00 из 1,00",
+    "ra": "Использовать параметры horizontalAlignment и verticalArrangement",
+    "ua": "",
+    "opts": [
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": true,
+        "ok": true,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      }
+    ]
+  },
+  {
+    "n": "Вопрос 70",
+    "t": "Какой компонент используется для создания текстовых полей\nв Compose?",
+    "tp": "mc",
+    "s": "X",
+    "g": "Баллов: 0,00 из 1,00",
+    "ra": "TextField",
+    "ua": "",
+    "opts": [
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": true,
+        "ok": false,
+        "bad": true
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      }
+    ]
+  },
+  {
+    "n": "Вопрос 71",
+    "t": "Какой тип данных используется для хранения null в Kotlin?",
+    "tp": "mc",
+    "s": "V",
+    "g": "Баллов: 1,00 из 1,00",
+    "ra": "Nothing",
+    "ua": "",
+    "opts": [
+      {
+        "t": "",
+        "sel": true,
+        "ok": true,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      }
+    ]
+  },
+  {
+    "n": "Вопрос 72",
+    "t": "Что делает LazyRow?",
+    "tp": "mc",
+    "s": "V",
+    "g": "Баллов: 1,00 из 1,00",
+    "ra": "Отображает горизонтальный список элементов",
+    "ua": "",
+    "opts": [
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": true,
+        "ok": true,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      }
+    ]
+  },
+  {
+    "n": "Вопрос 73",
+    "t": "Как можно сделать элемент видимым или невидимым?",
+    "tp": "mc",
+    "s": "V",
+    "g": "Баллов: 1,00 из 1,00",
+    "ra": "Использовать Modifier.alpha",
+    "ua": "",
+    "opts": [
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": true,
+        "ok": true,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      }
+    ]
+  },
+  {
+    "n": "Вопрос 74",
+    "t": "Что такое Canvas\nв Jetpack Compose?",
+    "tp": "mc",
+    "s": "V",
+    "g": "Баллов: 1,00 из 1,00",
+    "ra": "Компонент для рисования пользовательских\nграфических элементов",
+    "ua": "",
+    "opts": [
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": true,
+        "ok": true,
+        "bad": false
+      }
+    ]
+  },
+  {
+    "n": "Вопрос 75",
+    "t": "Какой компонент используется для отображения\nизображения?",
+    "tp": "mc",
+    "s": "V",
+    "g": "Баллов: 1,00 из 1,00",
+    "ra": "Image",
+    "ua": "",
+    "opts": [
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": true,
+        "ok": true,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      }
+    ]
+  },
+  {
+    "n": "Вопрос 76",
+    "t": "Как задать закругленные углы элементу в Compose?",
+    "tp": "mc",
+    "s": "X",
+    "g": "Баллов: 0,00 из 1,00",
+    "ra": "Modifier.clip(RoundedCornerShape(...))",
+    "ua": "",
+    "opts": [
+      {
+        "t": "",
+        "sel": true,
+        "ok": false,
+        "bad": true
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      }
+    ]
+  },
+  {
+    "n": "Вопрос 77",
+    "t": "Какая функция используется для управления\nвременем жизни анимации?",
+    "tp": "mc",
+    "s": "V",
+    "g": "Баллов: 1,00 из 1,00",
+    "ra": "AnimationSpec",
+    "ua": "",
+    "opts": [
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": true,
+        "ok": true,
+        "bad": false
+      }
+    ]
+  },
+  {
+    "n": "Вопрос 78",
+    "t": "Как можно стилизовать текст в Jetpack Compose?",
+    "tp": "mc",
+    "s": "X",
+    "g": "Баллов: 0,00 из 1,00",
+    "ra": "Все вышеперечисленное",
+    "ua": "",
+    "opts": [
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": true,
+        "ok": false,
+        "bad": true
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      }
+    ]
+  },
+  {
+    "n": "Вопрос 79",
+    "t": "Какой метод используется для создания\nпрокручиваемых списков?",
+    "tp": "mc",
+    "s": "V",
+    "g": "Баллов: 1,00 из 1,00",
+    "ra": "LazyColumn",
+    "ua": "",
+    "opts": [
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": true,
+        "ok": true,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      }
+    ]
+  },
+  {
+    "n": "Вопрос 80",
+    "t": "Что делает Spacer?",
+    "tp": "mc",
+    "s": "V",
+    "g": "Баллов: 1,00 из 1,00",
+    "ra": "Создает пустое пространство между элементами",
+    "ua": "",
+    "opts": [
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": true,
+        "ok": true,
+        "bad": false
+      }
+    ]
+  },
+  {
+    "n": "Вопрос 81",
+    "t": "Как в Kotlin объявить переменную, которая может\nбыть null?",
+    "tp": "mc",
+    "s": "V",
+    "g": "Баллов: 1,00 из 1,00",
+    "ra": "Добавить знак ? к типу",
+    "ua": "",
+    "opts": [
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": true,
+        "ok": true,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      }
+    ]
+  },
+  {
+    "n": "Вопрос 82",
+    "t": "Как можно организовать горизонтальное размещение\nэлементов?",
+    "tp": "mc",
+    "s": "X",
+    "g": "Баллов: 0,00 из 1,00",
+    "ra": "Использовать Row",
+    "ua": "",
+    "opts": [
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": true,
+        "ok": false,
+        "bad": true
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      }
+    ]
+  },
+  {
+    "n": "Вопрос 83",
+    "t": "Как передать параметры в функцию-компонент?",
+    "tp": "mc",
+    "s": "V",
+    "g": "Баллов: 1,00 из 1,00",
+    "ra": "Передать параметры через аргументы функции",
+    "ua": "",
+    "opts": [
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": true,
+        "ok": true,
+        "bad": false
+      }
+    ]
+  },
+  {
+    "n": "Вопрос 84",
+    "t": "Какой параметр отвечает за обработку скроллинга\nв Jetpack Compose?",
+    "tp": "mc",
+    "s": "V",
+    "g": "Баллов: 1,00 из 1,00",
+    "ra": "Modifier.verticalScroll()",
+    "ua": "",
+    "opts": [
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": true,
+        "ok": true,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      }
+    ]
+  },
+  {
+    "n": "Вопрос 85",
+    "t": "Какой метод используется для применения цвета к тексту?",
+    "tp": "mc",
+    "s": "V",
+    "g": "Баллов: 1,00 из 1,00",
+    "ra": "style = TextStyle(color = ...)",
+    "ua": "",
+    "opts": [
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": true,
+        "ok": true,
+        "bad": false
+      }
+    ]
+  },
+  {
+    "n": "Вопрос 86",
+    "t": "Что такое SideEffect в Jetpack Compose?",
+    "tp": "mc",
+    "s": "V",
+    "g": "Баллов: 1,00 из 1,00",
+    "ra": "Функция для создания побочных эффектов вне Compose",
+    "ua": "",
+    "opts": [
+      {
+        "t": "",
+        "sel": true,
+        "ok": true,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      }
+    ]
+  },
+  {
+    "n": "Вопрос 87",
+    "t": "Какую функцию можно использовать для запуска\nкорутины в Jetpack Compose?",
+    "tp": "mc",
+    "s": "V",
+    "g": "Баллов: 1,00 из 1,00",
+    "ra": "LaunchedEffect",
+    "ua": "",
+    "opts": [
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": true,
+        "ok": true,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      }
+    ]
+  },
+  {
+    "n": "Вопрос 88",
+    "t": "Как можно изменить цвет фона в элементе?",
+    "tp": "mc",
+    "s": "V",
+    "g": "Баллов: 1,00 из 1,00",
+    "ra": "Modifier.background(color = ...)",
+    "ua": "",
+    "opts": [
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": true,
+        "ok": true,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      }
+    ]
+  },
+  {
+    "n": "Вопрос 89",
+    "t": "Какой модификатор используется для указания\nвысоты и ширины элемента?",
+    "tp": "mc",
+    "s": "V",
+    "g": "Баллов: 1,00 из 1,00",
+    "ra": "Modifier.size()",
+    "ua": "",
+    "opts": [
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": true,
+        "ok": true,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      }
+    ]
+  },
+  {
+    "n": "Вопрос 90",
+    "t": "Что такое rememberCoroutineScope в Jetpack\nCompose?",
+    "tp": "mc",
+    "s": "X",
+    "g": "Баллов: 0,00 из 1,00",
+    "ra": "Функция для создания нового скоупа корутин, привязанного\nк композиции",
+    "ua": "",
+    "opts": [
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": true,
+        "ok": false,
+        "bad": true
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      }
+    ]
+  },
+  {
+    "n": "Вопрос 91",
+    "t": "Что произойдет, если не вызвать setContent в Jetpack Compose?",
+    "tp": "mc",
+    "s": "V",
+    "g": "Баллов: 1,00 из 1,00",
+    "ra": "Приложение откроется, но интерфейс будет пустым",
+    "ua": "",
+    "opts": [
+      {
+        "t": "",
+        "sel": true,
+        "ok": true,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      }
+    ]
+  },
+  {
+    "n": "Вопрос 92",
+    "t": "Что возвращает оператор is в Kotlin?",
+    "tp": "mc",
+    "s": "V",
+    "g": "Баллов: 1,00 из 1,00",
+    "ra": "Проверяет, является ли объект указанным типом",
+    "ua": "",
+    "opts": [
+      {
+        "t": "",
+        "sel": true,
+        "ok": true,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      }
+    ]
+  },
+  {
+    "n": "Вопрос 93",
+    "t": "Что используется для создания адаптивных\nинтерфейсов?",
+    "tp": "mc",
+    "s": "V",
+    "g": "Баллов: 1,00 из 1,00",
+    "ra": "ConstraintLayout",
+    "ua": "",
+    "opts": [
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": true,
+        "ok": true,
+        "bad": false
+      }
+    ]
+  },
+  {
+    "n": "Вопрос 94",
+    "t": "Как можно создать границы вокруг элемента?",
+    "tp": "mc",
+    "s": "V",
+    "g": "Баллов: 1,00 из 1,00",
+    "ra": "Modifier.border()",
+    "ua": "",
+    "opts": [
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": true,
+        "ok": true,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      }
+    ]
+  },
+  {
+    "n": "Вопрос 95",
+    "t": "Какой компонент используется для отображения\nчекбокса?",
+    "tp": "mc",
+    "s": "V",
+    "g": "Баллов: 1,00 из 1,00",
+    "ra": "Checkbox",
+    "ua": "",
+    "opts": [
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": true,
+        "ok": true,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      }
+    ]
+  },
+  {
+    "n": "Вопрос 96",
+    "t": "Что делает функция produceState в Jetpack Compose?",
+    "tp": "mc",
+    "s": "V",
+    "g": "Баллов: 1,00 из 1,00",
+    "ra": "Генерирует состояния, основанные на асинхронных\nданных",
+    "ua": "",
+    "opts": [
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": true,
+        "ok": true,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      }
+    ]
+  },
+  {
+    "n": "Вопрос 97",
+    "t": "В проект добавили модель данных ADO.Net –\nбазу данных College, в\nсвою очередь VisualStudioсоздал\nкласс CollegeEntities. Для\nчего необходимо создавать метод GetContext() в этом классе?",
+    "tp": "mc",
+    "s": "V",
+    "g": "Баллов: 1,00 из 1,00",
+    "ra": "GetContext() устанавливает связь между объектной моделью в VisualStudio\nи физической базой данных SQL Server.",
+    "ua": "",
+    "opts": [
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": true,
+        "ok": true,
+        "bad": false
+      }
+    ]
+  },
+  {
+    "n": "Вопрос 98",
+    "t": "В элемент DataGrid  добавили четыре колонки для атрибутов\nотношения Teacher.\nКакое основное свойство колонок необходимо настроить?\n\n·                   \nДля\nатрибута FirstName.\n\n·                   \nДля\nатрибута LastName.\n\n·                   \nДля\nатрибута gender.\n\n·                   \nДля\nатрибута birthday.",
+    "tp": "mc",
+    "s": "V",
+    "g": "Баллов: 1,00 из 1,00",
+    "ra": "Binding",
+    "ua": "",
+    "opts": [
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": true,
+        "ok": true,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      }
+    ]
+  },
+  {
+    "n": "Вопрос 99",
+    "t": "Каким образом можно создать список в Kotlin?",
+    "tp": "mc",
+    "s": "X",
+    "g": "Баллов: 0,00 из 1,00",
+    "ra": "Все вышеперечисленное",
+    "ua": "",
+    "opts": [
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": true,
+        "ok": false,
+        "bad": true
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      }
+    ]
+  },
+  {
+    "n": "Вопрос 100",
+    "t": "Если для элемента DataGrid\nнастроить свойствоAutoGenerateColumns  на\nзначениеtrue. Что\nбудет с ним происходить?",
+    "tp": "mc",
+    "s": "V",
+    "g": "Баллов: 1,00 из 1,00",
+    "ra": "Колонки в элементе  DataGridгенерируются\nавтоматические из класса.",
+    "ua": "",
+    "opts": [
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": true,
+        "ok": true,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      }
+    ]
+  },
+  {
+    "n": "Вопрос 101",
+    "t": "Дана хранимая процедура. Сколько параметров она имеет?\n\n\n\ncreateprocedure New2  \n\n@name_modelvarchar(4)\n\nas\n\nselect*frompc wheremodel\n= @name_model",
+    "tp": "mc",
+    "s": "V",
+    "g": "Баллов: 1,00 из 1,00",
+    "ra": "1",
+    "ua": "",
+    "opts": [
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": true,
+        "ok": true,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      }
+    ]
+  },
+  {
+    "n": "Вопрос 102",
+    "t": "Дана хранимая процедура. Есть ли в ней выходной параметр?\n\n\n\ncreateprocedure new4\n\n@aint, @b int, @c\nintoutput\n\nas\n\nset @c =@a+@b",
+    "tp": "mc",
+    "s": "V",
+    "g": "Баллов: 1,00 из 1,00",
+    "ra": "Да",
+    "ua": "",
+    "opts": [
+      {
+        "t": "",
+        "sel": true,
+        "ok": true,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      }
+    ]
+  },
+  {
+    "n": "Вопрос 103",
+    "t": "Дана хранимая процедура. Выберите команду, которая к ней\nобращается.\n\n\n\ncreateprocedure new4\n\n@aint, @b int, @c\nintoutput\n\nas\n\nset @c =@a+@b",
+    "tp": "mc",
+    "s": "V",
+    "g": "Баллов: 1,00 из 1,00",
+    "ra": "declare @c intexec new4 10, 15, @c\noutput",
+    "ua": "",
+    "opts": [
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": true,
+        "ok": true,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      }
+    ]
+  },
+  {
+    "n": "Вопрос 104",
+    "t": "Дан метод void F(int t, int &s) {}. Как обратиться к\nметоду F, передать значения и получить результат?void F(int\nt,int &s)\n\n{    s = 0;\n\n    while (t > 0)\n\n    {\n\n        s += (t % 10);\n\n        t /= 10;\n\n    } }",
+    "tp": "mc",
+    "s": "V",
+    "g": "Баллов: 1,00 из 1,00",
+    "ra": "Правильные ответы: int t = 1234; int s; F(t, s);\ncout << s;, int s = 0; F(4321, s); cout << s;",
+    "ua": "",
+    "opts": [
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": true,
+        "ok": true,
+        "bad": false
+      },
+      {
+        "t": "",
+        "sel": false,
+        "ok": false,
+        "bad": false
+      }
+    ]
+  },
+  {
+    "n": "Вопрос 105",
+    "t": "Объявите массив А, который будет хранить\nсимвольные данные.",
+    "tp": "sa",
+    "s": "X",
+    "g": "Баллов: 0,00 из 1,00",
+    "ra": "char А[10]",
+    "ua": "char A[100];",
+    "opts": []
+  },
+  {
+    "n": "Вопрос 106",
+    "t": "Как\nсоздать константу p «10 в степени 12» C++?",
+    "tp": "sa",
+    "s": "X",
+    "g": "Баллов: 0,00 из 1,00",
+    "ra": "const int p = pow(10,12);",
+    "ua": "constexpr long long p = 1000000000000LL;",
+    "opts": []
+  },
+  {
+    "n": "Вопрос 107",
+    "t": "Что\nбудет на экране после выполнения программы?\n\n#include\n<iostream>\n\nmain()\n\n{float\na=6.2510;\n\n//\nprintf_s(\"a=\");\n\nprintf_s(\"%2.2f\",a);\n}",
+    "tp": "sa",
+    "s": "V",
+    "g": "Баллов: 1,00 из 1,00",
+    "ra": "6.25",
+    "ua": "6.25",
+    "opts": []
+  },
+  {
+    "n": "Вопрос 108",
+    "t": "Укажите\nномер строки с ошибкой в программе. Записать цифру\n\n1 #include\n<iostream>\n\n2 main()\n\n3 { int x,\ny; scanf_s(\"%d %d\", &x, &y);\n\n4 if (x =\ny) printf_s(\"равны\");\n\n5 else\nprintf_s(\"не равны\");",
+    "tp": "sa",
+    "s": "V",
+    "g": "Баллов: 1,00 из 1,00",
+    "ra": "4",
+    "ua": "4",
+    "opts": []
+  },
+  {
+    "n": "Вопрос 109",
+    "t": "Упростите\nвложенные операторы if, заменив  их одним оператором if.\n\nif(i>0) if(i<10) std::cout<<”i=’<<i;",
+    "tp": "sa",
+    "s": "X",
+    "g": "Баллов: 0,00 из 1,00",
+    "ra": "if (i>0 && i<10) std::cout<<\"i=\"<<i;",
+    "ua": "if (i > 0 && i < 10)     std::cout << \"i=\" << i;",
+    "opts": []
+  },
+  {
+    "n": "Вопрос 110",
+    "t": "Запишите математическую формулу на языке\nпрограммирования С++.ответ нужно записать без отступов в начале, конце и внутри формулы",
+    "tp": "sa",
+    "s": "V",
+    "g": "Баллов: 1,00 из 1,00",
+    "ra": "f=(x-y)/(x+2 y) x-y",
+    "ua": "f=(x-y)/(x+2*y)*x-y",
+    "opts": []
+  },
+  {
+    "n": "Вопрос 111",
+    "t": "В проект добавили модель данных ADO.Net – базу данных College,\nв свою очередь VisualStudioсоздал\nкласс CollegeEntities.\nПропишите метод GetContext()\nдля класса CollegeEntities.\nВставьте пропущенное слово. \n\nprivate static\nCollegeEntities  _context;\n\npublic\nstatic CollegeEntitiesGetContext()\n\n{\n\n            if (_context==NULL)\n\n                                               _context\n=       new CollegeEntities();\n\nreturn ? ;\n\n}",
+    "tp": "sa",
+    "s": "V",
+    "g": "Баллов: 1,00 из 1,00",
+    "ra": "_context",
+    "ua": "_context",
+    "opts": []
+  },
+  {
+    "n": "Вопрос 112",
+    "t": "На форму поместили DataGrid, в котором должно отображаться отношение Teacher (CollegeEntities)с атрибутами FirstName, LastName, gender, birthday. DataGridдали\nимя TeacherDG.Напишите\nстроку кода, которая задает источник данных для DataGrid. Вставьте пропущенное слово.\n\nTeacherDG.ItemsSource\n= CollegeEntities.GetContext().?.List();",
+    "tp": "sa",
+    "s": "V",
+    "g": "Баллов: 1,00 из 1,00",
+    "ra": "Teacher",
+    "ua": "Teacher",
+    "opts": []
+  },
+  {
+    "n": "Вопрос 113",
+    "t": "Вычислите\nзначение выражения, при a=true, b=false,c=true.  Ответ записать без пробелов в начале и концеf = a&&b||a&&c",
+    "tp": "sa",
+    "s": "V",
+    "g": "Баллов: 1,00 из 1,00",
+    "ra": "1",
+    "ua": "true",
+    "opts": []
+  },
+  {
+    "n": "Вопрос 114",
+    "t": "Дана хранимая процедура. Какую команду SQL нужно написать,\nчтобы к ней обратиться? Команду напишите нижнем \nрегистре.\n\n\n\ncreateprocedure New \n\nas\n\nprint'Первая процедура'",
+    "tp": "sa",
+    "s": "V",
+    "g": "Баллов: 1,00 из 1,00",
+    "ra": "exec new",
+    "ua": "exec new",
+    "opts": []
+  },
+  {
+    "n": "Вопрос 115",
+    "t": "Дана хранимая процедура. Данная процедура выводит все\nкомпьютеры заданной модели. Как вызвать процедуру, чтобы вывести все модели с\nномером 1211? Напишите полную команду exec ... Команду напишите в нижнем\nрегистре.\n\n \n\n\n\ncreateprocedure New2  \n\n@name_modelvarchar(4)\n\nas\n\nselect*frompc wheremodel = @name_model",
+    "tp": "sa",
+    "s": "V",
+    "g": "Баллов: 1,00 из 1,00",
+    "ra": "exec new2 '1211'",
+    "ua": "exec new2 '1211'",
+    "opts": []
+  },
+  {
+    "n": "Вопрос 116",
+    "t": "Вычислите\nзначение выражения, при x=10 и y=-10\n\nf=x>10 && y<10 || x!=y",
+    "tp": "sa",
+    "s": "V",
+    "g": "Баллов: 1,00 из 1,00",
+    "ra": "1",
+    "ua": "true",
+    "opts": []
+  },
+  {
+    "n": "Вопрос 117",
+    "t": "В\nпрограмме создан метод void print_del(int a). Какой результат получится, если в\nкачестве параметра ей передать значение 10.void\nprint_del(int a)\n\n{\n\n    cout<<a<<\" \";\n\n    for (int i=1;i<=a;i++)\n\n    {\n\n                if (a%i==0)\n\n            cout<<\"+\";\n\n   }\n\n    cout<<endl; }",
+    "tp": "sa",
+    "s": "V",
+    "g": "Баллов: 1,00 из 1,00",
+    "ra": "10++++",
+    "ua": "10 ++++",
+    "opts": []
+  }
+]

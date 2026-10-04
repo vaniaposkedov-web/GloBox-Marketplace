@@ -1,0 +1,15 @@
+# Netlify config for monorepo deploy (Next.js frontend at apps/web)
+# The backend (apps/api) is NOT deployed here — it runs separately on Railway/Render.
+
+[build]
+  base = "apps/web"
+  command = "cd ../.. && corepack enable && pnpm install --frozen-lockfile && pnpm --filter @marketplace/shared build && pnpm --filter @marketplace/web build"
+  publish = ".next"
+
+[build.environment]
+  NODE_VERSION = "20"
+  NEXT_TELEMETRY_DISABLED = "1"
+  PNPM_FLAGS = "--shamefully-hoist"
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
